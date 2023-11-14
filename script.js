@@ -33,5 +33,9 @@ function updateClock() {
 
 setInterval(updateClock, 1000);
 updateClock();
-
+document.firstElementChild.addEventListener("wheel", function(e) {
+  if (e.ctrlKey) {
+      e.preventDefault();
+  }
+});
 

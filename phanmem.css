@@ -1,0 +1,59 @@
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Màu nền của trang web */
+    margin: 0;
+    padding: 0;
+    color: #fff; /* Màu chữ của trang web */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    align-items: start; /* Căn chỉnh các hàng theo chiều dọc */
+    justify-items: center; /* Căn chỉnh các cột theo chiều ngang */
+}
+
+
+img {
+    
+    width: 200px; /* Chiều rộng của hình ảnh */
+    height: 200px; /* Chiều cao của hình ảnh */
+    object-fit: contain;
+    margin: 20px auto;
+    transition: transform 0.3s ease;
+    border: 2px solid #ba1f1f; /* Tạo khung bên ngoài hình ảnh */
+    border-radius: 10px; /* Bo góc của khung */
+    background-color: #fff; /* Màu nền của hình ảnh */
+}
+
+img:active {
+    transform: scale(100);
+}
+
+figcaption {
+    color: #ff6347; /* Màu chữ của chú thích */
+    font-family: 'Courier New', Courier, monospace; /* Kiểu chữ của chú thích */
+    font-size: 20px; /* Kích thước chữ của chú thích */
+    text-align: center; /* Căn giữa chữ */
+}
+h1 {
+    color: blanchedalmond; /* Màu chữ của chú thích */
+    font-family: 'Courier New', Courier, monospace; /* Kiểu chữ của chú thích */
+    font-size: 50px; /* Kích thước chữ của chú thích */
+    text-align: center; /* Căn giữa chữ */
+    border: 3px solid beige; /* Tạo khung bên ngoài hình ảnh */
+    border-radius: 15px; /* Bo góc của khung */
+    position: absolute;
+    top: -3%;
+    left:25%;
+    transform: translate(0%,0%);
+    text-align: center;
+   padding: 10px 10px;
+   object-fit: contain;
+
+}

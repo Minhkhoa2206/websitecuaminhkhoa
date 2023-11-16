@@ -19,3 +19,7 @@ document.getElementById('button3').addEventListener('click', function() {
 document.getElementById('button4').addEventListener('click', function() {
     openLink('https://docs.google.com/spreadsheets/d/1V3vPq-UTGgg2gNrxQB8R6C5t7jCtvunIIVwBYIwr7F8/edit?usp=sharing');
 });
+
+document.getElementById('button5').addEventListener('click', function() {
+    openLink('https://drive.google.com/uc?export=download&id=1FP1Bv-WG3NgMgihzZ3Mxv4RNdH7OQHzO');
+});

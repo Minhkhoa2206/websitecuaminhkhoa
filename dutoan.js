@@ -23,3 +23,6 @@ document.getElementById('button4').addEventListener('click', function() {
 document.getElementById('button5').addEventListener('click', function() {
     openLink('https://drive.google.com/uc?export=download&id=1FP1Bv-WG3NgMgihzZ3Mxv4RNdH7OQHzO');
 });
+document.getElementById('button5').addEventListener('click', function() {
+    openLink('f1.ctr');
+});

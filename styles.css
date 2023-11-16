@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: black;
-  zoom: 90%;
+  zoom: 100%;
 }
 
 .menu-btn {
@@ -57,57 +57,12 @@ body {
 }
 
 h1 {
-  color: #e8e2e1;
+  color: wheat;
   font-family: 'Courier New', Courier, monospace;
   font-size: 20px;
   text-align: center;
+  
 }
-
-#Capnhat {
-  background-color: black;
-  color:white;
-  padding: 20px;
-  text-align: center;
-  font-size: 15px;
-  position: absolute;
-  top: 5%;
-  right: 25%;
-  transform: translate(0%,0%);
-  padding: 10px 10px;
-  border: 3px solid red;
-  border-radius: 15px;
-  width: 50%;
-}
-
-#Capnhat h2 {
-  color: Red;
-  font-size: 22px;
-  text-align: left;
-}
-
-#Capnhat a {
-
-  color: #f9a825;
-  font-size: 20px;
-  text-decoration: none;
-  text-align: left;
-}
-
-#Capnhat p {
-
-  margin-bottom: 10px;
-  font-size:15px;
-  text-align: left;
-  border: 2px solid white;
-  border-radius: 10px;
-  padding: 10px 10px;
-}
-
-.update-section {
-  margin-bottom: 20px;
-}
-
-
 h3 {
   color: white;
   font-family: 'Times New Roman', Times, serif;
@@ -122,12 +77,7 @@ h4 {
   text-align: center;
 }
 
-h6 {
-  color: whitesmoke;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 30px;
-  text-align: center;
-}
+
 #menuDanhMuc {
   width: 70%;
   border: 1px solid black;
@@ -219,5 +169,11 @@ h6 {
   margin-bottom: 20px;
 }
 
+h6 {
+  color: wheat;
+  font-family: 'Times New Roman', Times,;
+  font-size: 30px;
+  text-align: center;
+  
 
-
+}

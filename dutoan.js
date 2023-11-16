@@ -21,6 +21,6 @@ document.getElementById('button4').addEventListener('click', function() {
 });
 
 document.getElementById('button5').addEventListener('click', function() {
-    openLink('https://mega.nz/file/m74VibTb');
+    openLink('https://mega.nz/file/m74VibTb#FzW5JH1nPXIBc-IA6b_MprxVRupjQ6b_P5Ph62v3m-c');
 });
 

@@ -1,0 +1,11 @@
+Dựa trên file thư viện data.txt sử dụng Recover1.py để chuyển đổi từ text sang javascript data1.js ( Thư viện Anh - Việt)
+Dựa trên file thư viện data.txt sử dụng Recover2.py để chuyển đổi từ text sang javascript data1.js ( Thư viện Việt - Anh)
+Dựa trên file thư viện data.txt sử dụng Recover3.py để chuyển đổi về output.txt ( chỉ có từ và nghĩa )
+Dựa trên file thư viện output.txt sử dụng Recover4.py để chuyển đổi từ text về javascript data4.js ( Anh - Việt)
+Index.html thể hiện công cụ dịch thuật Anh - Việt
+Index2.html thể hiện công cụ dịch thuật Việt - Anh
+Index3.html thể hiện công cụ tổng hợp từ vựng chuyên ngành
+Còn một số file khác hổ trợ hoạt động của trang web không đề cập
+
+
+

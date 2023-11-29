@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  color: #f0f0f0;
+  padding: 20px;
+}
+
+h1 {
+  color: #ff6347;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #444;
+  border: 1px solid #555;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+li:hover {
+  background-color: #555;
+}
+
+li::before {
+  content: '» ';
+  color: #ff6347;
+}
+
+#notice {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  background-color: #007a4f; /* Màu vàng, giống màu của các biển cảnh báo công trình */
+  border: 1px solid black;
+  padding: 10px;
+}
+.close-btn {
+  float: right;
+  cursor: pointer;
+}
+#notice1 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #007a4f;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+}
+footer {
+  font-size: 20px; 
+  color: #ffffff; 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  text-align: center; 
+}
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  ul {
+    padding: 5px;
+  }
+
+  li {
+    margin-bottom: 5px;
+    padding: 5px;
+  }
+
+  .menu-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  #menu {
+    max-width: 100%;
+  }
+
+  #menu a {
+    padding: 8px 12px;
+  }
+
+  #notice, #notice1 {
+    width: auto;
+    position: static;
+    border-radius: 0;
+  }
+
+  footer {
+    font-size: 16px;
+    position: static;
+    width: auto;
+    padding: 10px;
+  }
+}

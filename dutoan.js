@@ -23,3 +23,6 @@ document.getElementById('button4').addEventListener('click', function() {
 document.getElementById('button5').addEventListener('click', function() {
     openLink('https://mega.nz/file/3rgWnSYQ#FlIDcV7zQgZZSGM1SMKBadrQqOqGWVY4gkFC7axeaiI');
 });
+document.getElementById('button6').addEventListener('click', function() {
+    openLink('https://mega.nz/file/S6pERQpb#ti6nL_WuMnlCfX2QcbslY8qP8ElAvxsIA-KJLX3FRtY');
+});

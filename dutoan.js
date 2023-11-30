@@ -27,4 +27,4 @@ document.getElementById('button6').addEventListener('click', function() {
     openLink('https://mega.nz/file/W7ATWDYL#bQcltxvmsS-LC_FaRixcGNYCFiJZn_r64AGCCbwY5jw');
 });
 
-https://mega.nz/file/W7ATWDYL#bQcltxvmsS-LC_FaRixcGNYCFiJZn_r64AGCCbwY5jw
+

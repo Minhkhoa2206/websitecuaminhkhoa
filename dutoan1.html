@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('nen.png');
+            background-size: cover; /* để ảnh nền tự động điều chỉnh kích thước */
+            background-position: center; /* để ảnh nền được căn giữa trang */
+            height: 100vh; /* set chiều cao của body bằng 100% chiều cao của viewport */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; /* màu chữ trắng để dễ đọc trên nền ảnh */
+        }
+
+        #login-form {
+            display: inline-block;
+            text-align: left;
+        }
+
+        #result {
+            margin-top: 20px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login-form">
+        <label for="nameInput">Nhập tên:</label>
+        <input type="text" id="nameInput">
+        <br>
+        <button onclick="checkName()">Kiểm tra</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        let allowedNames = ['Khoa', 'Tài', 'Được', 'Quốc', 'Kiệt'];
+        let attempts = 0;
+
+        function checkName() {
+            let nameInput = document.getElementById('nameInput').value;
+            let resultDiv = document.getElementById('result');
+
+            if (allowedNames.includes(nameInput)) {
+                window.location.href = 'dutoan.html';
+            } else {
+                attempts++;
+                resultDiv.innerHTML = 'Tên không hợp lệ. Bạn đã thử ' + attempts + ' lần.';
+
+                if (attempts === 3) {
+                    // Disable the input after 3 incorrect attempts
+                    document.getElementById('nameInput').disabled = true;
+                    resultDiv.innerHTML += '<br>Bạn đã nhập sai quá 3 lần. Vui lòng thử lại sau.';
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

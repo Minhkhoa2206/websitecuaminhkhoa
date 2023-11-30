@@ -24,5 +24,7 @@ document.getElementById('button5').addEventListener('click', function() {
     openLink('https://mega.nz/file/3rgWnSYQ#FlIDcV7zQgZZSGM1SMKBadrQqOqGWVY4gkFC7axeaiI');
 });
 document.getElementById('button6').addEventListener('click', function() {
-    openLink('https://mega.nz/file/S6pERQpb#ti6nL_WuMnlCfX2QcbslY8qP8ElAvxsIA-KJLX3FRtY');
+    openLink('https://mega.nz/file/W7ATWDYL#bQcltxvmsS-LC_FaRixcGNYCFiJZn_r64AGCCbwY5jw');
 });
+
+https://mega.nz/file/W7ATWDYL#bQcltxvmsS-LC_FaRixcGNYCFiJZn_r64AGCCbwY5jw

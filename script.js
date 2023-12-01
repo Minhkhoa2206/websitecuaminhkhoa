@@ -108,7 +108,6 @@ function checkAnswer(answer) {
     getNextQuestion();
   } else {
     if (score === shuffledQuestions.length || wrongAnswers <= maxWrongAnswers) {
-      recordAttempt(); // Record the quiz attempt using a cookie
       startCountdown();
     } else {
       showResults();
@@ -118,12 +117,14 @@ function checkAnswer(answer) {
 
 // Function to record the quiz attempt using a cookie
 function recordAttempt() {
-  const previousAttempts = parseInt(getCookie(cookieName)) || 0;
-  setCookie(cookieName, previousAttempts + 1, 365); // Record the quiz attempt in a cookie, you can adjust the number of days
+  const attempts = parseInt(getCookie(cookieName)) || 0;
+  setCookie(cookieName, attempts + 1, 365); // Record the quiz attempt in a cookie, you can adjust the number of days
 }
 
 // Function to start the countdown
 function startCountdown() {
+  recordAttempt(); // Record the attempt even if the user does not answer all questions
+
   questionContainer.innerText = `Bạn đã hoàn thành trắc nghiệm! Điểm của bạn là ${score}/${shuffledQuestions.length}. Chuyển hướng sau 5 giây...`;
   optionsContainer.innerHTML = '';
   nextButton.style.display = 'none';

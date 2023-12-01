@@ -1,0 +1,168 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-btn {
+  background-color: #4682B4;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.menu-btn:hover {
+  background-color: #4169E1;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2), 0 15px 40px 0 rgba(0, 0, 0, 0.15);
+}
+
+.menu-btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(5px);
+}
+
+#menu {
+  max-width: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#menu a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
+
+#menu a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-content li {
+  float: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+h1 {
+  color: wheat;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  text-align: center;
+}
+
+h3 {
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+  text-align: center;
+}
+
+h4 {
+  color: #CCFF33;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 24px;
+  text-align: center;
+}
+
+#menuDanhMuc {
+  width: 70%;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+#menuDanhMuc ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 12px;
+  overflow: hidden;
+  background-color: #323232;
+  border: 2px solid #5d8db5;
+  border-radius: 10px;
+}
+
+#menuDanhMuc li {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: #323232;
+  transition: background-color 0.3s ease;
+}
+
+#menuDanhMuc a {
+  color: #33CCFF;
+  text-decoration: none;
+  display: block;
+}
+
+#myClock {
+  color: #0f0;
+  font-family: 'Digital-7 Mono', monospace;
+  text-align: center;
+  padding-top: 10%;
+  font-size: 40px;
+}
+
+#myClock #clock {
+  border: 2px solid #7f00ff;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+}
+
+#myFooter {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  border: 3px solid blueviolet;
+  border-radius: 10px;
+  position: relative;
+}
+
+#myFooter h1 {
+  font-style: italic;
+  color: #f9a825;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#myFooter a {
+  color: #f9a825;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+#myFooter p {
+  font-style: italic;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-section {
+  margin-bottom: 20px;
+}
+
+h6 {
+  color: wheat;
+  font-family: 'Times New Roman', Times,;
+  font-size: 20px;
+  text-align: center;
+}

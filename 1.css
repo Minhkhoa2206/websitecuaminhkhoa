@@ -1,0 +1,46 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a; /* Dark background */
+    color: red; /* Green text color */
+    margin: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #333333; /* Darker background for container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: red; /* Green heading color */
+}
+
+.code-container {
+    background-color: blue; /* Black background for code container */
+    padding: 20px; /* Increased padding for more space around the code */
+    overflow-x: auto;
+    border-radius: 5px; /* Optional: add rounded corners */
+    border: 1px solid white; /* Border color for the code container */
+    margin-top: 10px; /* Adjust as needed */
+}
+
+.python-code {
+    font-family: 'Courier New', monospace;
+    color: yellow; /* Green text for the code */
+    display: block;
+}
+
+button {
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}

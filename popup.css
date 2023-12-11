@@ -3,7 +3,8 @@
 body {
     font-family: 'Arial', sans-serif;
     margin: 20px;
-    background-color: #f0f0f0;
+    background-color: #1e1e1e;
+    color: #fff;
   }
   
   #searchInput {
@@ -11,18 +12,25 @@ body {
     font-size: 16px;
     width: 70%;
     margin-right: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #4a4a4a;
     border-radius: 5px;
+    background-color: #2e2e2e;
+    color: #fff;
   }
   
   #searchButton {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #4caf50;
+    background-color: #2980b9;
     color: #fff;
     border: none;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #searchButton:hover {
+    background-color: #3498db;
   }
   
   #searchResults {
@@ -30,10 +38,11 @@ body {
   }
   
   .result {
-    border: 1px solid #ccc;
+    border: 1px solid #4a4a4a;
     margin-bottom: 20px;
     padding: 20px;
-    background-color: #fff;
+    background-color: #2e2e2e;
+    color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }

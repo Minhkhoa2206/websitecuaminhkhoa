@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm kiếm câu hỏi và đáp án</title>
+</head>
+<body>
+
+<input type="text" id="searchInput" placeholder="Nhập từ khóa tìm kiếm">
+<button onclick="search()">Tìm kiếm</button>
+
+<div id="searchResults"></div>
+
+<script>
+    function search() {
+        var searchInput = document.getElementById('searchInput').value.toLowerCase();
+
+        fetch('https://raw.githubusercontent.com/Minhkhoa2206/CH1/main/questions_and_answers.txt')
+            .then(response => response.text())
+            .then(data => {
+                // Tách các dòng thành mảng
+                var lines = data.split('\n');
+
+                // Tìm kiếm và hiển thị kết quả
+                var results = [];
+                for (var i = 0; i < lines.length; i++) {
+                    if (lines[i].toLowerCase().includes(searchInput)) {
+                        // Lấy 6 dòng liên quan (3 câu hỏi và 3 đáp án)
+                        var result = lines.slice(i, i + 6);
+                        results.push(result);
+                    }
+                }
+                displayResults(results);
+            })
+            .catch(error => console.error('Lỗi khi tải nội dung:', error));
+    }
+
+    function displayResults(results) {
+        var searchResultsDiv = document.getElementById('searchResults');
+        searchResultsDiv.innerHTML = '';
+
+        if (results.length === 0) {
+            searchResultsDiv.innerHTML = 'Không có kết quả phù hợp.';
+        } else {
+            results.forEach(result => {
+                var resultDiv = document.createElement('div');
+                resultDiv.classList.add('result');
+
+                result.forEach(line => {
+                    var resultParagraph = document.createElement('p');
+                    resultParagraph.textContent = line;
+                    resultDiv.appendChild(resultParagraph);
+                });
+
+                searchResultsDiv.appendChild(resultDiv);
+            });
+        }
+    }
+</script>
+
+<style>
+    .result {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+</style>
+
+</body>
+</html>

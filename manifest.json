@@ -1,0 +1,20 @@
+
+{
+  "manifest_version": 3,
+  "name": "Tìm kiếm câu hỏi và đáp án",
+  "version": "1.0",
+  "description": "Mô tả tiện ích của bạn",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "permissions": ["activeTab"],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

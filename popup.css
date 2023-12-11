@@ -2,54 +2,53 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    margin: 20px;
-    background-color: #1e1e1e;
-    color: #fff;
-  }
-  
-  #searchInput {
+    margin: 0; /* Loại bỏ margin */
+    padding:0px; /* Loại bỏ padding */
+    background-color: #ffffff; /* Màu nền trắng */
+    color: #000000; /* Chữ đen */
+}
+
+#searchInput {
     padding: 10px;
     font-size: 16px;
     width: 70%;
-    margin-right: 10px;
     border: 1px solid #4a4a4a;
     border-radius: 5px;
-    background-color: #2e2e2e;
-    color: #fff;
-  }
-  
-  #searchButton {
+    background-color: #ffffff; /* Màu nền trắng */
+    color: #000000; /* Chữ đen */
+}
+
+#searchButton {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
     background-color: #2980b9;
-    color: #fff;
+    color: #ffffff; /* Chữ trắng */
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-  }
-  
-  #searchButton:hover {
+}
+
+#searchButton:hover {
     background-color: #3498db;
-  }
-  
-  #searchResults {
+}
+
+#searchResults {
     margin-top: 20px;
-  }
-  
-  .result {
+}
+
+.result {
     border: 1px solid #4a4a4a;
     margin-bottom: 20px;
     padding: 20px;
-    background-color: #2e2e2e;
-    color: #fff;
+    background-color: #ffffff; /* Màu nền trắng */
+    color: #000000; /* Chữ đen */
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Optional: Style the scrollbar */
-  #searchResults {
+}
+
+/* Optional: Style the scrollbar */
+#searchResults {
     max-height: 300px;
     overflow-y: auto;
-  }
-  
+}

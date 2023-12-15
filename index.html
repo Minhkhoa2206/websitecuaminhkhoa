@@ -5,60 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading Page</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-image: url('nen.png');
-            background-size: 100% 100%; /* Cover the entire width and height */
-            background-position: center;
-            background-attachment: fixed; /* Fixed background while scrolling */
-            background-repeat: no-repeat;
-            font-family: 'Arial', sans-serif;
-            color: #fff;
-        }
-        
-
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url('nen.png') center/cover fixed no-repeat;
+        font-family: 'Arial', sans-serif;
+        color: #fff;
+    }
+    
+    #loading-container {
+        text-align: center;
+        transform: scale(1.5);
+    }
+    
+    #logo {
+        font-size: 48px;
+        margin-bottom: 20px;
+        font-family: 'Arial', sans-serif;
+        text-transform: uppercase;
+        display: inline-block;
+        background: linear-gradient(to right, #ff5733, #ff9933, #ffcc33, #ccff33, #33ff33, #33ffcc, #3399ff, #3333ff, #9933ff, #ff33cc) text;
+        color: transparent;
+        text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    #loading-bar-container {
+        width: 300px;
+        height: 20px;
+        background: linear-gradient(to right, #ff5733, #ff9933, #ffcc33, #ccff33, #33ff33, #33ffcc, #3399ff, #3333ff, #9933ff, #ff33cc);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+    
+    #loading-bar {
+        width: 0;
+        height: 100%;
+        background: linear-gradient(to right, #3333ff, #9933ff, #ff33cc);
+        border-radius: 10px;
+        transition: width 1s ease;
+    }
+    
+    @media (max-width: 768px) {
         #loading-container {
-            text-align: center;
-            transform: scale(1.5); /* Adjust the scaling factor as needed */
+            transform: scale(1);
         }
-
+    
         #logo {
-            font-size: 48px;
-            margin-bottom: 20px;
-            font-family: 'Arial', sans-serif;
-            text-transform: uppercase;
-            display: inline-block;
-            background: linear-gradient(to right, #ff5733, #ff9933, #ffcc33, #ccff33, #33ff33, #33ffcc, #3399ff, #3333ff, #9933ff, #ff33cc);
-            -webkit-background-clip: text;
-            color: transparent;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+            font-size: 5vw;
         }
-        
-        
-        
-
+    
         #loading-bar-container {
-            width: 300px;
-            height: 20px;
-            background: linear-gradient(to right, #ff5733, #ff9933, #ffcc33, #ccff33, #33ff33, #33ffcc, #3399ff, #3333ff, #9933ff, #ff33cc);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-top: 20px;
+            width: 80vw;
+            height: 5vw;
+            margin-top: 5vw;
         }
-
-        #loading-bar {
-            width: 0;
-            height: 100%;
-            background: linear-gradient(to right, #3333ff, #9933ff, #ff33cc);
-            border-radius: 10px;
-            transition: width 1s ease;
-        }
+    }
+    
+        
     </style>
 </head>
 

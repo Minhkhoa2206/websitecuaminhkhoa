@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Drawing with Synchronized Color Picker and Auto Draw</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #drawingArea {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #000;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        #clearButton,
+        #autoDrawButton {
+            position: absolute;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #clearButton {
+            top: 10px;
+            right: 10px;
+            background-color: #ff0000;
+            color: #fff;
+        }
+
+        #autoDrawButton {
+            top: 50px;
+            right: 10px;
+            background-color: #008000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="drawingArea">
+        <input type="color" id="colorPicker" value="#000000">
+        <canvas id="drawingCanvas"></canvas>
+        <button id="clearButton">Clear All</button>
+        <button id="autoDrawButton">Toggle Auto Draw</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('drawingCanvas');
+        const context = canvas.getContext('2d');
+        const colorPicker = document.getElementById('colorPicker');
+        const clearButton = document.getElementById('clearButton');
+        const autoDrawButton = document.getElementById('autoDrawButton');
+
+        // Use a shared Broadcast Channel for communication between tabs
+        const channel = new BroadcastChannel('drawing_channel');
+
+        let selectedColor = colorPicker.value;
+        let autoDraw = false;
+
+        canvas.width = window.innerWidth - 20;
+        canvas.height = window.innerHeight - 100;
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function drawRandomColor(x, y, color) {
+            context.beginPath();
+            context.arc(x, y, 5, 0, 2 * Math.PI);
+            context.fillStyle = color;
+            context.fill();
+            context.stroke();
+        }
+
+        function autoDrawFunction() {
+            if (autoDraw) {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+
+                const randomColor = getRandomColor();
+                drawRandomColor(x, y, randomColor);
+
+                // Broadcast the drawing data to other tabs
+                channel.postMessage({ x, y, color: randomColor });
+
+                const delay = Math.random() * 200 + 50;
+                setTimeout(autoDrawFunction, delay);
+            }
+        }
+
+        // Event listener for receiving messages from other tabs
+        channel.addEventListener('message', (event) => {
+            const { x, y, color } = event.data;
+            drawRandomColor(x, y, color);
+        });
+
+        canvas.addEventListener('mousemove', (event) => {
+            const x = event.clientX - canvas.getBoundingClientRect().left;
+            const y = event.clientY - canvas.getBoundingClientRect().top;
+
+            const randomColor = getRandomColor();
+            drawRandomColor(x, y, randomColor);
+
+            // Broadcast the drawing data to other tabs
+            channel.postMessage({ x, y, color: randomColor });
+        });
+
+        colorPicker.addEventListener('input', () => {
+            selectedColor = colorPicker.value;
+        });
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth - 20;
+            canvas.height = window.innerHeight - 100;
+        });
+
+        clearButton.addEventListener('click', () => {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            // Broadcast a clear message to other tabs
+            channel.postMessage({ clear: true });
+        });
+
+        // Event listener for handling clear messages from other tabs
+        channel.addEventListener('message', (event) => {
+            if (event.data.clear) {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        });
+
+        autoDrawButton.addEventListener('click', () => {
+            autoDraw = !autoDraw;
+            if (autoDraw) {
+                autoDrawFunction();
+            }
+        });
+    </script>
+</body>
+
+</html>

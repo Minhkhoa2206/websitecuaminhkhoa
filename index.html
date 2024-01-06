@@ -23,9 +23,9 @@
         }
 
         #intro-container img {
-            max-width: 40%; /* Thu nhỏ hình ảnh */
+            max-width: 40%;
             height: auto;
-            border-radius: 12px; /* Bo tròn góc với giá trị border-radius */
+            border-radius: 12px;
             opacity: 0;
             transform: translateY(20px);
         }
@@ -36,11 +36,11 @@
         }
 
         h1 {
-            color: #ffcc00; /* Màu vàng */
+            color: #ffcc00;
         }
 
         p {
-            color: #66ccff; /* Màu xanh dương */
+            color: #66ccff;
         }
     </style>
 </head>
@@ -53,21 +53,44 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
     <script>
-        const introContainer = document.getElementById("intro-container");
-        const introImage = document.getElementById("intro-image");
+        document.addEventListener("DOMContentLoaded", function() {
+            const introContainer = document.getElementById("intro-container");
+            const introImage = document.getElementById("intro-image");
+            const titleElement = document.querySelector("title");
 
-        // Animation using Anime.js
-        anime({
-            targets: introImage,
-            opacity: 1,
-            translateY: 0,
-            duration: 2000,
-            easing: 'easeInOutQuad',
-            delay: 1000,
-            complete: () => {
-                // Redirect to the destination URL after the animation
-                window.location.href = "Trangchu";
+            // Animation using Anime.js
+            anime({
+                targets: introImage,
+                opacity: 1,
+                translateY: 0,
+                duration: 2000,
+                easing: 'easeInOutQuad',
+                delay: 1000,
+                complete: () => {
+                    // Redirect to the destination URL after the animation
+                    window.location.href = "Trangchu";
+                }
+            });
+
+            // Function to make title text flash
+            function flashTitle() {
+                titleElement.innerText = "VUI LÒNG ĐỢI...";
+                setTimeout(() => {
+                    titleElement.innerText = "VUI LÒNG ĐỢI..";
+                    setTimeout(() => {
+                        titleElement.innerText = "VUI LÒNG ĐỢI.";
+                        setTimeout(() => {
+                            titleElement.innerText = "VUI LÒNG ĐỢI";
+                            flashTitle(); // Repeat the flashing
+                        }, 500);
+                    }, 500);
+                }, 500);
             }
+
+            // Start flashing the title after a delay
+            setTimeout(() => {
+                flashTitle();
+            }, 1000);
         });
     </script>
 </body>

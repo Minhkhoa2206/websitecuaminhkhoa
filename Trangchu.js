@@ -109,3 +109,29 @@ window.onload = function() {
     }
 };
 
+
+$(document).ready(function () {
+    var isDragging = false;
+    var offset = { x: 0, y: 0 };
+
+    $('#m-booked-bl-simple-14862').mousedown(function (e) {
+        isDragging = true;
+        offset = {
+            x: e.clientX - $('#m-booked-bl-simple-14862').offset().left,
+            y: e.clientY - $('#m-booked-bl-simple-14862').offset().top
+        };
+    });
+
+    $(document).mouseup(function () {
+        isDragging = false;
+    });
+
+    $(document).mousemove(function (e) {
+        if (isDragging) {
+            $('#m-booked-bl-simple-14862').offset({
+                left: e.clientX - offset.x,
+                top: e.clientY - offset.y
+            });
+        }
+    });
+});

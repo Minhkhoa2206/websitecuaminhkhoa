@@ -21,19 +21,16 @@ body:hover {
 }
 
 .menu-btn {
-  font-size: 1.5em;
-  cursor: pointer;
-  background-color: #2ecc71;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  border: 2px solid #000;  /* Màu và độ đậm của đường viền */
+  padding: 10px;          /* Khoảng cách bên trong nút */
+  cursor: pointer;        /* Chuyển đổi con trỏ khi di chuột vào nút */
+  display: inline-block;  /* Hiển thị là khối nút */
+  border-radius: 5px;     /* Bo tròn góc của nút */
 }
 
 .menu-btn:hover {
-  background-color: #27ae60;
+  background-color: #eee;  /* Màu nền khi di chuột vào nút */
 }
-
 .menu-btn:active {
   background-color: #219653;
 }
@@ -71,20 +68,21 @@ body:hover {
 
 
 #myClock {
-  color: #27ae60;
+  color: #fff; /* Màu chữ trắng */
   font-family: 'Digital-7 Mono', monospace;
   text-align: center;
   font-size: 40px;
 }
 
 #myClock #clock {
+  background-color: #000; /* Màu nền đen cho phần đồng hồ */
   border: 2px solid #27ae60;
   border-radius: 10px;
   padding: 10px;
   display: inline-block;
   text-align: center;
+  text-shadow: 2px 2px 4px #333; /* Hiệu ứng chữ 3D đổ nóng */
 }
-
 /* Main Content Section - Danh Muc */
 #menuDanhMuc {
   width: 80%;
@@ -146,6 +144,34 @@ body:hover {
   color: #fff;
   padding: 20px;
   text-align: center;
+  margin-bottom: 0; /* Đặt khoảng trắng phía dưới là 0 */
+}
+
+#myFooter a {
+  color: #0066cc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#myFooter a:hover {
+  color: #ff9900;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.footer-section h1,
+.footer-section h2 {
+  background: linear-gradient(to right, #ffcc00, #ff6600, #cc33ff, #00cc66, #3366ff);
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+.footer-section h2 {
+  margin-top: 10px; /* Điều chỉnh khoảng cách giữa h1 và h2 nếu cần */
+  display: block; /* Đảm bảo h2 không bị ảnh hưởng bởi thuộc tính inline-block của h1 */
 }
 
 @media (min-width: 768px) {
@@ -154,11 +180,6 @@ body:hover {
     justify-content: space-around;
     align-items: center;
     text-align: center;
-  }
-
-  .footer-section {
-    flex: 1;
-    margin: 0 20px;
   }
 }
 

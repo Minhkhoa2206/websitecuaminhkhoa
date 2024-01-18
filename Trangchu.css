@@ -166,9 +166,11 @@ body:hover {
 .footer-section h2 {
   background: linear-gradient(to right, #ffcc00, #ff6600, #cc33ff, #00cc66, #3366ff);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   display: inline-block;
 }
+
 .footer-section h2 {
   margin-top: 10px; /* Điều chỉnh khoảng cách giữa h1 và h2 nếu cần */
   display: block; /* Đảm bảo h2 không bị ảnh hưởng bởi thuộc tính inline-block của h1 */

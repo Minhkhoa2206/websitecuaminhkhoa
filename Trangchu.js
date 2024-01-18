@@ -20,14 +20,14 @@ function hideNotificationModal() {
 // Disable F12 key
 document.addEventListener('keydown', function (e) {
     if (e.key === 'F12') {
-        showNotificationModal('Chúng tôi không đồng ý với việc bạn truy cập vào mã nguồn của chúng tôi.Bạn có thể làm ảnh hưởng đến chúng tôi' + adminContact + '. Cảm ơn.');
+        showNotificationModal('Chúng tôi không đồng ý với việc bạn truy cập vào mã nguồn của chúng tôi.Bạn có thể làm ảnh hưởng đến chúng tôi Liên hệ: '  + adminContact + '. Cảm ơn.');
         e.preventDefault();
     }
 });
 
 // Disable context menu (right-click)
 document.addEventListener('contextmenu', function (e) {
-    showNotificationModal('Quyền hạn bị cấp bị hạn chế bởi Admin. Vui lòng liên hệ ' + adminContact + '. Cảm ơn.');
+    showNotificationModal('Quyền hạn bị cấp bị hạn chế bởi Admin. Vui lòng liên hệ ' +  adminContact + '. Cảm ơn.');
     e.preventDefault();
 });
 
@@ -58,18 +58,35 @@ function updateClock() {
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
+    const currentDate = now.toDateString();
 
     document.getElementById('hours').innerText = hours;
     document.getElementById('minutes').innerText = minutes;
     document.getElementById('seconds').innerText = seconds;
 
+    document.getElementById('current-date').innerText = currentDate;
+
+    // Màu sắc ngẫu nhiên cho giờ, phút và giây
     document.getElementById('hours').style.color = getRandomColor();
     document.getElementById('minutes').style.color = getRandomColor();
     document.getElementById('seconds').style.color = getRandomColor();
+    
+    // Màu sắc ngẫu nhiên cho ngày
+    document.getElementById('current-date').style.color = getRandomColor();
+}
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 
 setInterval(updateClock, 1000);
 updateClock();
+
 
 
 
@@ -91,3 +108,4 @@ window.onload = function() {
         alert("Trình duyệt của bạn có vẻ không sử dụng Adblock Plus hoặc phần mềm chặn quảng cáo tương tự.");
     }
 };
+

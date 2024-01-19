@@ -253,16 +253,3 @@ body:hover {
 .gallery-item:hover .image-caption {
   opacity: 1;
 }
-
-#m-booked-bl-simple-14862 {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  transition: filter 0.3s;
-  filter: brightness(0.9); /* Giảm độ sáng ban đầu */
-}
-
-#m-booked-bl-simple-14862:hover {
-  filter: brightness(1); /* Tăng độ sáng khi hover */
-}

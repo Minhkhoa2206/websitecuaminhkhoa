@@ -1,27 +1,33 @@
- // Ngăn chặn sự kiện Ctrl+A và sự kiện copy
- document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.key === 'a') {
-      showAlert('Ctrl+A không được phép!');
-      e.preventDefault();
-    }
-  });
+// Ngăn chặn sự kiện Ctrl+A và sự kiện copy
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.key === 'a') {
+    showAlert('Ctrl+A không được phép!');
+    e.preventDefault();
+  }
+});
 
-  document.addEventListener('copy', function(e) {
-    e.preventDefault(); // Ngăn chặn hành động copy
+document.addEventListener('copy', function(e) {
+  e.preventDefault(); // Ngăn chặn hành động copy
 
-    var alertDiv = document.getElementById('alertDiv');
-    alertDiv.textContent = 'Copy không được phép!';
-    alertDiv.style.display = 'block';
+  var alertDiv = document.getElementById('alertDiv');
+  alertDiv.textContent = 'Copy không được phép!';
+  alertDiv.style.display = 'block';
 
-    // Thêm dòng chữ vào clipboard
-    var clipboardData = e.clipboardData || window.clipboardData;
-    var copiedText = 'LIÊN HỆ: 0867544809 (A.Khoa Admin đẹp trai)';
-    clipboardData.setData('text/plain', copiedText);
+  // Thêm dòng chữ vào clipboard
+  var clipboardData = e.clipboardData || window.clipboardData;
+  var copiedText = 'LIÊN HỆ: 0867544809 (A.Khoa Admin đẹp trai)';
+  clipboardData.setData('text/plain', copiedText);
 
-    setTimeout(function() {
-      alertDiv.style.display = 'none';
-    }, 2000); // Ẩn cảnh báo sau 2 giây
-  });
+  setTimeout(function() {
+    alertDiv.style.display = 'none';
+  }, 2000); // Ẩn cảnh báo sau 2 giây
+});
+
+// Thêm sự kiện click để tắt cảnh báo khi bấm chuột
+document.addEventListener('click', function() {
+  var alertDiv = document.getElementById('alertDiv');
+  alertDiv.style.display = 'none';
+});
 
   // Hiển thị cảnh báo
   function showAlert(message) {

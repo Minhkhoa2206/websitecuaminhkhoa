@@ -11,7 +11,7 @@ function convertImage() {
       const originalFileExtension = originalFileName.split('.').pop().toLowerCase();
   
       // Kiểm tra xem đuôi file có trong danh sách cần chuyển không
-      const allowedExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.tif', '.raw', '.webp', '.svg', '.heif', '.heic', '.ico'];
+      const allowedExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.tif', '.raw', '.webp', '.svg', '.heif', '.heic', '.ico', 'jfif'];
       if (allowedExtensions.includes('.' + originalFileExtension)) {
         loadingIndicator.style.display = 'block';
   

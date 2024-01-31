@@ -1,0 +1,45 @@
+.menu-btn {
+  border: 2px solid #000;  /* Màu và độ đậm của đường viền */
+  padding: 10px;          /* Khoảng cách bên trong nút */
+  cursor: pointer;        /* Chuyển đổi con trỏ khi di chuột vào nút */
+  display: inline-block;  /* Hiển thị là khối nút */
+  border-radius: 5px;     /* Bo tròn góc của nút */
+}
+
+.menu-btn:hover {
+  background-color: #eee;  /* Màu nền khi di chuột vào nút */
+}
+.menu-btn:active {
+  background-color: #219653;
+}
+#menu {
+  max-width: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: fixed;
+  top: 60px; /* Adjust this value to position the menu below the button */
+  left: 30px; /* Adjust this value to position the menu horizontally */
+  z-index: 3; /* Set a higher z-index than other elements */
+  display: none; /* Hide the menu by default */
+}
+
+#menu a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
+
+#menu a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-content li {
+  float: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

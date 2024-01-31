@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thay Đổi Kích Thước Ảnh</title>
+    <link rel="stylesheet" href="kichthuocanh.css">
+    <script src="inphoahoa.js"></script>
+    <style>
+        #imageContainer {
+            text-align: center;
+        }
+
+        #resizedImage {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <label for="resizeWidth">Chiều rộng mới (px): </label>
+        <input type="number" id="resizeWidth" min="1" value="100">
+
+        <label for="resizeHeight">Chiều cao mới (px): </label>
+        <input type="number" id="resizeHeight" min="1" value="100">
+
+        <button onclick="resizeImage()">Thay Đổi Kích Thước</button>
+
+        <button onclick="downloadImage('png')">Tải Ảnh (PNG)</button>
+        <button onclick="downloadImage('jpg')">Tải Ảnh (JPG)</button>
+        <button onclick="downloadImage('ico')">Tải Icon (ICO)</button>
+    </div>
+
+    <div id="imageContainer">
+        <label for="uploadImage">Chọn ảnh từ máy tính:</label>
+        <input type="file" id="uploadImage" accept="image/*" onchange="loadImage(this)">
+        
+        <br>
+        
+        <img id="resizedImage" src="" alt="Ảnh">
+    </div>
+
+    <script>
+        function resizeImage() {
+            var newWidth = document.getElementById('resizeWidth').value;
+            var newHeight = document.getElementById('resizeHeight').value;
+            var image = document.getElementById('resizedImage');
+            
+            // Thay đổi kích thước ảnh
+            image.style.width = newWidth + 'px';
+            image.style.height = newHeight + 'px';
+        }
+
+        function loadImage(input) {
+            var file = input.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    // Hiển thị ảnh sau khi tải lên
+                    var image = document.getElementById('resizedImage');
+                    image.src = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function downloadImage(format) {
+            var image = document.getElementById('resizedImage');
+            var canvas = document.createElement('canvas');
+            var context = canvas.getContext('2d');
+
+            // Đặt kích thước của canvas bằng với kích thước của ảnh
+            canvas.width = image.width;
+            canvas.height = image.height;
+
+            // Vẽ ảnh lên canvas
+            context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+            // Tạo URL cho ảnh đã vẽ trên canvas
+            var downloadUrl = canvas.toDataURL('image/' + format);
+
+            // Tạo một thẻ <a> để tải về
+            var downloadLink = document.createElement('a');
+            downloadLink.href = downloadUrl;
+            downloadLink.download = 'ket_cau.' + format;
+
+            // Thêm thẻ <a> vào trang và kích hoạt sự kiện click
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+
+            // Xóa thẻ <a> sau khi tải xong
+            document.body.removeChild(downloadLink);
+        }
+    </script>
+
+</body>
+</html>

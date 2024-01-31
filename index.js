@@ -1,76 +1,3 @@
-// Ngăn chặn sự kiện Ctrl+A và sự kiện copy
-document.addEventListener('keydown', function(e) {
-  if (e.ctrlKey && e.key === 'a') {
-    showAlert('Ctrl+A không được phép!');
-    e.preventDefault();
-  }
-});
-
-document.addEventListener('copy', function(e) {
-  e.preventDefault(); // Ngăn chặn hành động copy
-
-  var alertDiv = document.getElementById('alertDiv');
-  alertDiv.textContent = 'Copy không được phép!';
-  alertDiv.style.display = 'block';
-
-  // Thêm dòng chữ vào clipboard
-  var clipboardData = e.clipboardData || window.clipboardData;
-  var copiedText = 'LIÊN HỆ: 0867544809 (A.Khoa Admin đẹp trai)';
-  clipboardData.setData('text/plain', copiedText);
-
-  setTimeout(function() {
-    alertDiv.style.display = 'none';
-  }, 2000); // Ẩn cảnh báo sau 2 giây
-});
-
-// Thêm sự kiện click để tắt cảnh báo khi bấm chuột
-document.addEventListener('click', function() {
-  var alertDiv = document.getElementById('alertDiv');
-  alertDiv.style.display = 'none';
-});
-
-  // Hiển thị cảnh báo
-  function showAlert(message) {
-    var alertDiv = document.getElementById('alertDiv');
-    alertDiv.textContent = message;
-    alertDiv.style.display = 'block';
-  }
-document.firstElementChild.addEventListener("wheel", function(e) {
-  if (e.ctrlKey) {
-      e.preventDefault();
-  }
-});
-
-const adminContact = '0867544809';
-
-function showNotificationModal(message) {
-    const notificationModal = document.getElementById('notificationModal');
-    notificationModal.textContent = message;
-    notificationModal.style.display = 'flex';
-}
-
-function hideNotificationModal() {
-    const notificationModal = document.getElementById('notificationModal');
-    notificationModal.style.display = 'none';
-}
-
-// Disable F12 key
-document.addEventListener('keydown', function (e) {
-    if (e.key === 'F12') {
-        showNotificationModal('Chúng tôi không đồng ý với việc bạn truy cập vào mã nguồn của chúng tôi.Bạn có thể làm ảnh hưởng đến chúng tôi Liên hệ: '  + adminContact + '. Cảm ơn.');
-        e.preventDefault();
-    }
-});
-
-// Disable context menu (right-click)
-document.addEventListener('contextmenu', function (e) {
-    showNotificationModal('Quyền hạn bị cấp bị hạn chế bởi Admin. Vui lòng liên hệ ' +  adminContact + '. Cảm ơn.');
-    e.preventDefault();
-});
-
-// Close the notification modal on any click
-document.addEventListener('click', hideNotificationModal);
-
 
 function openMenu() {
     var menu = document.getElementById('menu');
@@ -126,4 +53,10 @@ updateClock();
 
 
 
+function openSourceCode() {
+  // Gán đường link vào biến
+  var sourceCodeLink = "https://by.tn/viewcode";
 
+  // Mở đường link trong một tab mới
+  window.open(sourceCodeLink, '_blank');
+}

@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: linear-gradient(45deg, #ff7300, #eaecc6);
+  background: linear-gradient(45deg, black, black);
   transition: background 0.5s ease;
   zoom: 125%; /* Add this line for zoom effect */
 }
@@ -21,11 +21,12 @@ body:hover {
 }
 
 .menu-btn {
-  border: 2px solid #000;  /* Màu và độ đậm của đường viền */
+  border: 2px solid #07f078;  /* Màu và độ đậm của đường viền */
   padding: 10px;          /* Khoảng cách bên trong nút */
   cursor: pointer;        /* Chuyển đổi con trỏ khi di chuột vào nút */
   display: inline-block;  /* Hiển thị là khối nút */
-  border-radius: 5px;     /* Bo tròn góc của nút */
+  border-radius: 5px; 
+  background-color: #00cc66;    /* Bo tròn góc của nút */
 }
 
 .menu-btn:hover {
@@ -299,3 +300,5 @@ body:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
+
+

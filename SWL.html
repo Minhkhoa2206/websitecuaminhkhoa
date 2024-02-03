@@ -1,0 +1,189 @@
+<html>
+import tkinter as tk
+from tkinter import ttk, filedialog, messagebox
+from docx import Document
+from googletrans import Translator
+import threading
+import os
+from PIL import Image, ImageTk
+import requests
+from io import BytesIO
+from docx.shared import Inches
+import configparser
+class DocTranslator:
+    def __init__(self):
+        self.root = tk.Tk()
+        self.root.title("Software to convert Word file content language( SWL)")
+        info_label = tk.Label(self.root, text="Thông Tin",bg='#66CC66', fg="blue", underline=0, cursor="hand2")
+        info_label.grid(row=8, column=2, sticky="se", pady=10)
+        info_label.bind("<Button-1>", self.show_additional_info)
+        icon_url = "https://www.ketcaumkpr.id.vn/lanword.ico"
+        icon_path = "C:\\HSTMK\\SWL\\lanword.ico"
+        self.download_icon(icon_url, icon_path)
+        self.set_window_icon(self.root, icon_path)
+        self.root.configure(bg='#66CC66')
+        self.input_file_var = tk.StringVar()
+        self.output_directory_var = tk.StringVar()
+        self.output_file_name_var = tk.StringVar()
+        self.input_language_var = tk.StringVar(value='en')  
+        self.output_language_var = tk.StringVar(value='vi')  
+        tk.Label(self.root, text="Đầu vào:", bg='#66CC66').grid(row=0, column=0, sticky="e", pady=5, padx=5)
+        input_entry = tk.Entry(self.root, textvariable=self.input_file_var, width=50)
+        input_entry.grid(row=0, column=1, pady=5, padx=5)
+        tk.Button(self.root, text="Chọn file", command=self.browse_input_file).grid(row=0, column=2, pady=5, padx=5)
+        tk.Label(self.root, text="Thư mục đầu ra:", bg='#66CC66').grid(row=1, column=0, sticky="e", pady=5, padx=5)
+        output_entry = tk.Entry(self.root, textvariable=self.output_directory_var, width=50)
+        output_entry.grid(row=1, column=1, pady=5, padx=5)
+        tk.Button(self.root, text="Chọn thư mục", command=self.browse_output_directory).grid(row=1, column=2, pady=5, padx=5)
+        language_options = ['English', 'Vietnamese', 'Chinese', 'Japanese', 'Russian', 'Korean', 'French']
+        tk.Label(self.root, text="Ngôn ngữ đầu vào:", bg='#66CC66').grid(row=2, column=0, sticky="e", pady=5, padx=5)
+        input_language_dropdown = ttk.Combobox(self.root, values=language_options, textvariable=self.input_language_var)
+        input_language_dropdown.grid(row=2, column=1, pady=5, padx=5)
+        input_language_dropdown.set(language_options[0])
+        tk.Label(self.root, text="Ngôn ngữ đầu ra:", bg='#66CC66').grid(row=3, column=0, sticky="e", pady=5, padx=5)
+        output_language_dropdown = ttk.Combobox(self.root, values=language_options, textvariable=self.output_language_var)
+        output_language_dropdown.grid(row=3, column=1, pady=5, padx=5)
+        output_language_dropdown.set(language_options[1])
+        tk.Label(self.root, text="Tên file đầu ra:", bg='#66CC66').grid(row=4, column=0, sticky="e", pady=5, padx=5)
+        output_file_name_entry = tk.Entry(self.root, textvariable=self.output_file_name_var, width=50)
+        output_file_name_entry.grid(row=4, column=1, pady=5, padx=5)
+        tk.Button(self.root, text="Dịch giữ nguyên định dạng", command=self.translate_files).grid(row=5, column=1, pady=10)
+        style = ttk.Style()
+        style.configure('TButton', corner=('10'))
+        self.root.mainloop()
+    def read_config(self):
+        if os.path.exists(config_file):
+            self.config.read(config_file)
+            self.input_language_var.set(self.config.get('Settings', 'input_language', fallback='English'))
+            self.output_language_var.set(self.config.get('Settings', 'output_language', fallback='Vietnamese'))
+    def write_config(self):
+        self.config['Settings'] = {
+            'input_language': self.input_language_var.get(),
+            'output_language': self.output_language_var.get()
+        }
+        with open(config_file, 'w') as configfile:
+            self.config.write(configfile)
+    def download_icon(self, icon_url, save_path):
+        icon_directory = os.path.dirname(save_path)
+        os.makedirs(icon_directory, exist_ok=True)
+        if not os.path.exists(save_path):
+            response = requests.get(icon_url)
+            with open(save_path, 'wb') as f:
+                f.write(response.content)
+    def set_window_icon(self, window, icon_path):
+        try:
+            img = Image.open(icon_path)
+            img = img.resize((16, 16), resample=Image.BICUBIC)
+            icon = ImageTk.PhotoImage(img)
+            window.tk.call('wm', 'iconphoto', window._w, icon)
+        except Exception as e:
+            messagebox.showwarning("Cảnh báo", f"Không thể thiết lập icon: {str(e)}")
+    def translate_text(self, text, input_language='en', target_language='vi'):
+        translator = Translator()
+        if text.strip():
+            translation = translator.translate(text, src=input_language, dest=target_language)
+            return translation.text
+        else:
+            return text
+    def translate_word_file_preserve_format(self, input_file_path, output_file_path, progress_var, input_language, output_language):
+        self.document = Document()
+
+        doc = Document(input_file_path)
+        total_paragraphs = len(doc.paragraphs)
+
+        for i, paragraph in enumerate(doc.paragraphs):
+            self.copy_paragraph(paragraph, input_language, output_language)
+            progress_value = int((i + 1) / total_paragraphs * 100)
+            progress_var.set(progress_value)
+            self.root.update_idletasks()
+        self.document.save(output_file_path)
+        result = messagebox.askquestion("Thông báo", f"Dịch thành công!\nĐã lưu vào: {output_file_path}\nBạn có muốn mở tệp không?") 
+        if result == 'yes':
+            self.open_file(output_file_path)
+    def open_file(self, file_path):
+        try:
+            os.startfile(file_path)
+        except Exception as e:
+            messagebox.showwarning("Cảnh báo", f"Không thể mở tệp: {str(e)}")
+    def browse_input_file(self):
+        input_file_path = filedialog.askopenfilename(filetypes=[("Word files", "*.docx")])
+        self.input_file_var.set(input_file_path)
+
+    def browse_output_directory(self):
+        output_directory = filedialog.askdirectory()
+        self.output_directory_var.set(output_directory)
+    def get_language_code(self, language_name):
+        language_codes = {
+            'English': 'en',
+            'Vietnamese': 'vi',
+            'Chinese': 'zh-CN',  # Tiếng Trung
+            'Japanese': 'ja',   # Tiếng Nhật
+            'Russian': 'ru',    # Tiếng Nga
+            'Korean': 'ko',     # Tiếng Hàn
+            'French': 'fr'      # Tiếng Pháp
+        }
+        return language_codes.get(language_name, 'en')
+    def copy_paragraph(self, paragraph, input_language, output_language):
+        new_paragraph = self.document.add_paragraph()
+        new_paragraph.clear()
+        for run in paragraph.runs:
+            if run.element.tag.endswith('r'):
+                new_run = new_paragraph.add_run(self.translate_text(run.text, input_language, output_language))
+                new_run.bold = run.bold
+                new_run.italic = run.italic
+                new_run.underline = run.underline
+                new_run.font.size = run.font.size
+                new_run.font.name = run.font.name
+                new_run.font.color.rgb = run.font.color.rgb
+            elif run.element.tag.endswith('blip'):
+                image_part = run.part.related_parts[run._blip]
+                image_blob = image_part.blob
+                image = Image.open(BytesIO(image_blob))
+                new_image_path = f"translated_image_{len(self.document.paragraphs)}.png"
+                image.save(new_image_path)
+                new_paragraph.add_run().add_picture(new_image_path, width=Inches(1.0))
+                os.remove(new_image_path)
+        new_paragraph.style = paragraph.style
+    def update_languages(self, input_language, output_language):
+        self.input_language_var.set(input_language)
+        self.output_language_var.set(output_language)
+
+    def update_selected_languages(self, event):
+        input_language = self.get_language_code(self.input_language_var.get())
+        output_language = self.get_language_code(self.output_language_var.get())
+        self.update_languages(input_language, output_language)
+    def translate_files(self):
+        input_file_path = self.input_file_var.get()
+        output_directory = self.output_directory_var.get()
+        output_file_name = self.output_file_name_var.get()
+
+        input_language = self.get_language_code(self.input_language_var.get())
+        output_language = self.get_language_code(self.output_language_var.get())
+        if input_file_path and output_directory and output_file_name:
+            output_file_path = f"{output_directory}/{output_file_name}.docx"
+            progress_var = tk.IntVar()
+            progress_bar = ttk.Progressbar(self.root, variable=progress_var, maximum=100)
+            progress_bar.grid(row=6, column=1, pady=10)
+            thread = threading.Thread(target=lambda: self.translate_word_file_preserve_format(
+                input_file_path, output_file_path, progress_var, input_language, output_language
+            ))
+            thread.start()
+        else:
+            messagebox.showwarning("Cảnh báo", "Vui lòng điền đầy đủ thông tin.")
+    def show_additional_info(self, event):
+        additional_info_text = (
+            "Software to convert Word file content language (SWL)\n"
+            "Tác giả: Minh Khoa, Ngày: 02/02/2024, Phiên Bản: V1.0.1 \n"
+            "Lưu ý:\n"
+            "- Phần Mềm Hiện Đang Phát Triển Nên Chỉ Tương Tác Giữa 'Tiếng Anh', 'Tiếng Việt', 'Tiếng Trung', 'Tiếng Nhật', 'Tiếng Nga', 'Tiếng Hàn', 'Tiếng Pháp'\n"
+            "- Đôi với những file văn bản có khối lượng nặng thì quá trình chuyển đổi sẽ mất nhiều thời gian\n"
+            "- Phần mềm chỉ tương tác với văn bản không tương tác với hình ảnh và công thức toán học \n"
+            "# Email: khoanminhtran9@gmail.com \n"
+            "# Website: www.ketcaumkpr.id.vn"
+        )
+        messagebox.showinfo("Thông Tin", additional_info_text)
+# KT RUN
+doc_translator = DocTranslator()
+doc_translator.root.mainloop()
+
+</html>

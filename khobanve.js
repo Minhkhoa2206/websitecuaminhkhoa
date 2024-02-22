@@ -153,6 +153,14 @@ const products = [
         link: "https://terabox.com/s/1raOdyka0U8P-gnSOmqG3Bg", 
         description: "BV AutoCad - chung cư" 
     },
+    { 
+        code: "0020Q",
+        name: "BẢN VẼ KHÁCH SẠN NHA TRANG( CỦ CHI VĨNH HẢI NHA TRANG)", 
+        image: "0020Q.png", 
+        price: "Miễn Phí Nè", 
+        link: "https://drive.google.com/file/d/1zJhl5LtNcGiSSZu6F9aJ5uPe_47tN9ZV/view?usp=sharing", 
+        description: "BV AutoCad - chung cư" 
+    },
 ];
 
 // Xáo trộn mảng sản phẩm để hiển thị ngẫu nhiên
@@ -174,6 +182,7 @@ document.getElementById('searchInput').addEventListener('input', function() {
     );
     showProducts(filteredProducts);
 });
+
 
 // Hiển thị danh sách sản phẩm
 function showProducts(productsToShow) {

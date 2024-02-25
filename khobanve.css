@@ -4,6 +4,39 @@ body {
     margin: 0;
     padding: 0;
 }
+.navbar {
+    background-color: #007bff;
+    padding: 10px 20px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.navbar ul li:last-child {
+    margin-right: 0;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #0056b3;
+}
+
+
 
 
 /* Phần header */
@@ -14,33 +47,7 @@ header {
     padding: 1rem 0;
 }
 
-nav {
-    background-color: #333;
-    padding: 0.5rem 0;
-}
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 1rem;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #ccc;
-}
 
 /* Phần container chứa sản phẩm */
 .container {
@@ -158,29 +165,52 @@ nav ul li a:hover {
 }
 
 
+/* Style for h2 */
+/* Style for h2 */
 h2 {
-    font-family: Arial, sans-serif;
-    font-size: 20px;
-    color: #333; /* Màu văn bản */
-    text-align: center; /* Canh giữa nội dung */
-    padding: 20px; /* Khoảng cách nội dung và khung */
-    background-color: #f8f8f8; /* Màu nền */
-    border: 1px solid #ccc; /* Đường viền */
-    border-radius: 5px; /* Bo tròn viền */
-    max-width: 600px; /* Chiều rộng tối đa */
-    margin: 10px auto; /* Canh giữa phần tử và tạo khoảng cách giữa các hàng */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Thêm hiệu ứng chuyển động */
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 20px; /* Font size */
+    color: #333; /* Text color */
+    text-align: left; /* Left align text */
+    padding: 20px; /* Spacing between content and border */
+    background-color: #f8f8f8; /* Background color */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 5px; /* Rounded border */
+    max-width: 600px; /* Maximum width */
+    margin: 10px 10px 10px 0; /* Margin for spacing between elements */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effect for transform and box-shadow */
 }
 
+/* Hover effect for h2 */
 h2:hover {
-    transform: translateY(-5px); /* Di chuyển phần tử lên trên khi hover */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng shadow */
+    transform: translateY(-5px); /* Move element up when hovered */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
 }
-h2 span {
-    display: block; /* Hiển thị mỗi đoạn văn bản trên một hàng */
-    line-height: 1.5; /* Độ cao của dòng */
-    margin-bottom: 10px; /* Khoảng cách giữa các dòng */
+
+/* Style for h4 */
+h4 {
+    font-size: 24px; /* Font size */
+    color: White; /* Text color */
+    margin-bottom: 10px; /* Bottom margin for h4 */
+    text-align: left; /* Left align text */
 }
+
+/* Style for button link */
+.button {
+    display: inline-block; /* Display as inline block */
+    padding: 10px 20px; /* Padding */
+    background-color: #007bff; /* Background color */
+    color: #fff; /* Text color */
+    text-decoration: none; /* Remove default underline */
+    border-radius: 5px; /* Rounded border */
+    transition: background-color 0.3s; /* Transition effect for background color */
+}
+
+/* Hover effect for button link */
+.button:hover {
+    background-color: #0056b3; /* Background color on hover */
+}
+
 
 .rainbow-text {
     font-family: Arial, sans-serif;
@@ -217,25 +247,28 @@ h2 span {
     box-sizing: border-box;
 }
 
-/* Style cho tiêu đề h4 */
-h4 {
-    font-size: 24px; /* Kích thước font chữ */
-    color: White; /* Màu chữ */
-    margin-bottom: 10px; /* Khoảng cách dưới của tiêu đề */
+
+
+
+/* CSS cho phần tử select */
+#filterSelect {
+    margin-bottom: 10px; /* Khoảng cách dưới cùng */
+    padding: 8px; /* Khoảng cách bên trong */
+    font-size: 16px; /* Cỡ chữ */
+    border-radius: 5px; /* Bo tròn góc */
+    border: 1px solid #ccc; /* Viền */
+    background-color: #fff; /* Màu nền */
+    color: #333; /* Màu chữ */
 }
 
-/* Style cho liên kết nút */
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff; /* Màu nền xanh biển */
-    color: #fff; /* Màu chữ trắng */
-    text-decoration: none; /* Loại bỏ gạch chân mặc định */
-    border-radius: 5px; /* Bo tròn viền */
-    transition: background-color 0.3s; /* Hiệu ứng chuyển đổi màu nền */
+#filterSelect:hover {
+    border-color: #007bff; /* Viền khi di chuột qua */
 }
 
-.button:hover {
-    background-color: #0056b3; /* Màu nền xanh biển khi di chuột qua */
+#filterSelect:focus {
+    outline: none; /* Loại bỏ đường viền khi focus */
+    border-color: #007bff; /* Viền khi được focus */
 }
+
+
 

@@ -6,27 +6,49 @@
     <title>Freedrawingstore.vn</title>
     <link rel="icon" href="khobanve.png" type="image/png">
     <link rel="stylesheet" href="khobanve.css">
+    <script src="khobanvetb.js"></script>
 </head>
+
+
 <body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="https://drive.google.com/drive/folders/1zgaeAdlBaxcKOQCO-ZAnFjHqgH532W5B" target="_blank">Đóng Góp BV</a></li>
+            <li><a href="quyenriengtu.html">Quyền Riêng Tư</a></li>
+            <li><a href="lienhe.html">Liên Hệ</a></li>
+        </ul>
+    </nav>
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Trang Chủ</a></li>
-                <li><a href="quyenriengtu.html">Quyền Riêng Tư</a></li>
-            </ul>
-        </nav>
-        <h1 class="rainbow-text">Freedrawingstore.vn</h1>
-        <input type="text" id="searchInput" placeholder="Tìm kiếm bằng tên hoặc mã bản vẽ...">
+
+
         <h2>
-            <span>- Trang Web Tự Phát Triển - Các File Bản Vẽ Được Sưu Tầm Từ Nhiều Website - Hội Nhóm Zalo, Facebook</span><br>
-            <span>- Những vấn đề phản ánh liên quan đến quyền tác giả vui lòng liên hệ email: <a href="mailto:khoaminhtran9.xd@gmail.com" target="_blank">khoaminhtran9.xd@gmail.com</a>.</span>
-            <span>- Nếu bản vẽ lỗi- Link hỏng vui lòng liên hệ Zalo: 0867544809 để mình hỗ trợ nhé.</span>
-            span>- Xin Chân Thành Cảm  Ơn</span>
+            - Trang Web Tự Phát Triển - Các File Bản Vẽ Từ Nhiều Nguồn - Hội Nhóm Zalo, Facebook<br>
+            - Liên hệ về quyền tác giả: <a href="mailto:khoaminhtran9.xd@gmail.com" target="_blank">khoaminhtran9.xd@gmail.com</a><br>
+            - Báo lỗi hoặc link hỏng: Zalo 0867544809<br>
+            Xin Chân Thành Cảm Ơn
         </h2>
-        <h4>Các bạn yêu quý mình có thể đóng góp bản vẽ <a href="https://drive.google.com/drive/folders/1zgaeAdlBaxcKOQCO-ZAnFjHqgH532W5B?usp=sharing" target="_blank" class="button">Tại đây</a></h4>        
+        <h4>Các bạn yêu quý mình có thể đóng góp bản vẽ <a href="https://drive.google.com/drive/folders/1zgaeAdlBaxcKOQCO-ZAnFjHqgH532W5B?usp=sharing" target="_blank" class="button">Tại đây</a></h4>
+        
+        <h1 class="rainbow-text">Freedrawingstore.vn</h1>
+        
+        <select id="filterSelect">
+            <option value="all">Tất cả loại sản phẩm</option>
+            <option value="KT">Kiến Trúc</option>
+            <option value="KC">Kết Cấu</option>
+            <option value="QH">Quy Hoạch</option>
+            <option value="AU">AutoCad</option>
+            <option value="RV">Revit</option>
+            <option value="SK">SketChup</option>
+        </select>
+        
+        <input type="text" id="searchInput" placeholder="Tìm kiếm bằng tên hoặc mã bản vẽ...">
     </header>
+
     <div class="container" id="product-container">
     </div>
-    <script src="khobanve.js"></script>
+
+    <script src="script.js"></script>
+
 </body>
 </html>

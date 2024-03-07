@@ -1,0 +1,16 @@
+#myClock {
+  color: #fff; /* Màu chữ trắng */
+  font-family: 'Digital-7 Mono', monospace;
+  text-align: center;
+  font-size: 40px;
+}
+
+#myClock #clock {
+  background-color: #000; /* Màu nền đen cho phần đồng hồ */
+  border: 2px solid #27ae60;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  text-shadow: 2px 2px 4px #333; /* Hiệu ứng chữ 3D đổ nóng */
+}

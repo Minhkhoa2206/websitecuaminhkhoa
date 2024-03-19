@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trò Chơi Tìm Ô Liên Kết</title>
 <style>
+    h1 {
+    position: absolute; /* Thiết lập vị trí tuyệt đối */
+    top: 0; /* Đặt vị trí của tiêu đề ở đầu trang */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translateX(-50%); /* Di chuyển tiêu đề lùi lại phía trái 50% chiều rộng của nó để căn giữa */
+    background-color: #333; /* Màu nền */
+    color: white; /* Màu chữ */
+    padding: 10px 20px; /* Độ dày và khoảng cách giữa văn bản và viền */
+    margin: 0; /* Loại bỏ margin mặc định */
+}
+
 body {
     background-color: #0f0f0f; /* Màu nền của trang */
     font-family: 'Courier New', monospace; /* Font chữ */
@@ -36,36 +47,18 @@ body {
     background-color: #001f00; /* Màu nền khi hover vào ô */
     border-color: #00ff00; /* Đổi màu đường viền khi hover */
 }
-h1 {
-    position: absolute; /* Thiết lập vị trí tuyệt đối */
-    top: 0; /* Đặt vị trí của tiêu đề ở đầu trang */
-    left: 50%; /* Căn giữa theo chiều ngang */
-    transform: translateX(-50%); /* Di chuyển tiêu đề lùi lại phía trái 50% chiều rộng của nó để căn giữa */
-    background-color: #333; /* Màu nền */
-    color: white; /* Màu chữ */
-    padding: 10px 20px; /* Độ dày và khoảng cách giữa văn bản và viền */
-    margin: 0; /* Loại bỏ margin mặc định */
-}
-#statusDisplay {
-    position: fixed; /* Thiết lập vị trí cố định */
-    bottom: 20px; /* Cách mép dưới 20px */
-    left: 50%; /* Căn giữa theo chiều ngang */
-    transform: translateX(-50%); /* Di chuyển phần tử lùi lại 50% chiều rộng của nó để căn giữa */
-    background-color: #333; /* Màu nền */
-    color: white; /* Màu chữ */
-    padding: 10px; /* Độ dày và khoảng cách giữa văn bản và viền */
-    border-radius: 5px; /* Đường viền cong */
-}
-
 
 </style>
 </head>
 <body>
-<h1>Trò Chơi Ô Cờ Tìm Link   </h1>
+
+<h1>Trò Chơi Ô Cờ</h1>
+
 <div id="gameBoard"></div>
 <p id="status"></p>
+
 <script>
- eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('1 f=4.L(\'f\');1 g=4.L(\'1e\');1 u=[3,3,3,3,3];p(1 i=0;i<10;i++){p(1 j=0;j<10;j++){1 2=4.H(\'1d\');2.1c=\'2\';2.J(\'e-d\',i);2.J(\'e-7\',j);2.1a(\'q\',6);f.I(2)}f.I(4.H(\'18\'))}p(1 k=0;k<5;k++){1 E=b.G(b.F()*10);1 x=b.G(b.F()*10);1 9=E*10+x;u[9]=V}1 8=0;o 6(C){1 2=C.12;1 d=A(2.z(\'e-d\'));1 7=A(2.z(\'e-7\'));1 9=d*10+7;w(u[9]){g.r=\'11úc mừP! Bạn đã mở được Uên kết.\';K.D.Z=\'1g://X.W.1f.16/v?1h=1s-1v&1w=v&1y=0&1A=t&1z=1x-1i-1t-1u-1q&1p=1o-1n-:1m\';S()}N{8++;w(8>=5){g.r=\'Rất 1lếc! Bạn đã hết lượt. 1kò Tơi sẽ M.\';1j(o(){K.D.M()},Y)}N{g.r=\'Ô này 1rôP Tứa Uên kết. Bạn còn \'+(5-8)+\' lượt 14ử.\';2.O(\'q\',6);2.15.13=\'17\'}}}o S(){1 Q=4.19(\'.2\');Q.1b(o(2){2.O(\'q\',6)})}',62,99,'|var|cell|false|document||handleClick|col|attempts|cellIndex||Math||row|data|gameBoard|statusDisplay||||||||function|for|click|textContent|||links|download|if|randomCol||getAttribute|parseInt||event|location|randomRow|random|floor|createElement|appendChild|setAttribute|window|getElementById|reload|else|removeEventListener|ng|cells||disableAllCells|ch|li|true|usercontent|drive|2000|href||Ch|target|backgroundColor|th|style|com|gray|br|querySelectorAll|addEventListener|forEach|className|div|status|google|https|id|2102|setTimeout|Tr|ti|1710832368357|DqRWP9KOoDKUkngbhHp|APZUnTX|at|48727d612035|kh|1yE9R4cI|44cb|a78d|zg4dUKTf6Du6IqdLBuevn8t1|export|15f8f364|authuser|uuid|confirm'.split('|'),0,{}))
+eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('1 g=4.G(\'g\');1 d=4.G(\'13\');1 q=[3,3,3,3,3];p(1 i=0;i<10;i++){p(1 j=0;j<10;j++){1 2=4.x(\'Z\');2.U=\'2\';2.C(\'b-a\',i);2.C(\'b-9\',j);2.Q(\'o\',6);g.z(2)}g.z(4.x(\'V\'))}p(1 k=0;k<5;k++){1 A=7.F(7.D()*10);1 w=7.F(7.D()*10);1 8=A*10+w;q[8]=11}1 e=0;f 6(u){1 2=u.12;1 a=v(2.y(\'b-a\'));1 9=v(2.y(\'b-9\'));1 8=a*10+9;E(q[8]){d.r=\'18úc mừ19! Bạn đã mở được 1bên kết.\';H.N.16=\'1f://1g.17.14.1d\';O()}K{e++;E(e>=5){d.r=\'Rất 1aếc! Bạn đã hết lượt. 1cò Mơi sẽ J.\';1e(f(){H.N.J()},15)}K{d.r=\'Lược Mơi: \'+(5-e)+\'\';2.P(\'o\',6);2.Y.X=\'W\'}}}f O(){1 I=4.T(\'.2\');I.S(f(2){2.P(\'o\',6)})}',62,79,'|var|cell|false|document||handleClick|Math|cellIndex|col|row|data||statusDisplay|attempts|function|gameBoard||||||||click|for|links|textContent|||event|parseInt|randomCol|createElement|getAttribute|appendChild|randomRow||setAttribute|random|if|floor|getElementById|window|cells|reload|else||ch|location|disableAllCells|removeEventListener|addEventListener||forEach|querySelectorAll|className|br|gray|backgroundColor|style|div||true|target|status|id|2000|href|ketcaumkpr|Ch|ng|ti|li|Tr|vn|setTimeout|http|www'.split('|'),0,{}))
 
 </script>
 </body>

@@ -20,64 +20,8 @@
 <div id="gameBoard"></div>
 <p id="status"></p>
 <script>
-    var gameBoard = document.getElementById('gameBoard');
-    var statusDisplay = document.getElementById('status');
-    var links = [false, false, false, false, false]; // Mảng ghi nhớ ô chứa liên kết
+ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('1 f=4.L(\'f\');1 g=4.L(\'1e\');1 u=[3,3,3,3,3];p(1 i=0;i<10;i++){p(1 j=0;j<10;j++){1 2=4.H(\'1d\');2.1c=\'2\';2.J(\'e-d\',i);2.J(\'e-7\',j);2.1a(\'q\',6);f.I(2)}f.I(4.H(\'18\'))}p(1 k=0;k<5;k++){1 E=b.G(b.F()*10);1 x=b.G(b.F()*10);1 9=E*10+x;u[9]=V}1 8=0;o 6(C){1 2=C.12;1 d=A(2.z(\'e-d\'));1 7=A(2.z(\'e-7\'));1 9=d*10+7;w(u[9]){g.r=\'11úc mừP! Bạn đã mở được Uên kết.\';K.D.Z=\'1g://X.W.1f.16/v?1h=1s-1v&1w=v&1y=0&1A=t&1z=1x-1i-1t-1u-1q&1p=1o-1n-:1m\';S()}N{8++;w(8>=5){g.r=\'Rất 1lếc! Bạn đã hết lượt. 1kò Tơi sẽ M.\';1j(o(){K.D.M()},Y)}N{g.r=\'Ô này 1rôP Tứa Uên kết. Bạn còn \'+(5-8)+\' lượt 14ử.\';2.O(\'q\',6);2.15.13=\'17\'}}}o S(){1 Q=4.19(\'.2\');Q.1b(o(2){2.O(\'q\',6)})}',62,99,'|var|cell|false|document||handleClick|col|attempts|cellIndex||Math||row|data|gameBoard|statusDisplay||||||||function|for|click|textContent|||links|download|if|randomCol||getAttribute|parseInt||event|location|randomRow|random|floor|createElement|appendChild|setAttribute|window|getElementById|reload|else|removeEventListener|ng|cells||disableAllCells|ch|li|true|usercontent|drive|2000|href||Ch|target|backgroundColor|th|style|com|gray|br|querySelectorAll|addEventListener|forEach|className|div|status|google|https|id|2102|setTimeout|Tr|ti|1710832368357|DqRWP9KOoDKUkngbhHp|APZUnTX|at|48727d612035|kh|1yE9R4cI|44cb|a78d|zg4dUKTf6Du6IqdLBuevn8t1|export|15f8f364|authuser|uuid|confirm'.split('|'),0,{}))
 
-    // Tạo ô cờ
-    for (var i = 0; i < 10; i++) {
-        for (var j = 0; j < 10; j++) {
-            var cell = document.createElement('div');
-            cell.className = 'cell';
-            cell.setAttribute('data-row', i);
-            cell.setAttribute('data-col', j);
-            cell.addEventListener('click', handleClick);
-            gameBoard.appendChild(cell);
-        }
-        gameBoard.appendChild(document.createElement('br')); // Thêm dòng mới
-    }
-
-    // Random 5 ô chứa link
-    for (var k = 0; k < 5; k++) {
-        var randomRow = Math.floor(Math.random() * 10);
-        var randomCol = Math.floor(Math.random() * 10);
-        var cellIndex = randomRow * 10 + randomCol;
-        links[cellIndex] = true;
-    }
-
-    var attempts = 0; // Biến đếm số lần thử
-    function handleClick(event) {
-        var cell = event.target;
-        var row = parseInt(cell.getAttribute('data-row'));
-        var col = parseInt(cell.getAttribute('data-col'));
-        var cellIndex = row * 10 + col;
-
-        if (links[cellIndex]) { // Nếu ô đó chứa link
-            statusDisplay.textContent = 'Chúc mừng! Bạn đã mở được liên kết.';
-            window.location.href = 'https://drive.usercontent.google.com/download?id=1yE9R4cI-zg4dUKTf6Du6IqdLBuevn8t1&export=download&authuser=0&confirm=t&uuid=15f8f364-2102-44cb-a78d-48727d612035&at=APZUnTX-DqRWP9KOoDKUkngbhHp-:1710832368357'; // Mở liên kết
-            disableAllCells(); // Vô hiệu hóa tất cả các ô
-        } else {
-            attempts++;
-            if (attempts >= 5) { // Nếu đã thử đủ 5 lần mà không mở được liên kết
-                statusDisplay.textContent = 'Rất tiếc! Bạn đã hết lượt. Trò chơi sẽ reload.';
-                setTimeout(function() {
-                    window.location.reload();
-                }, 2000);
-            } else {
-                statusDisplay.textContent = 'Ô này không chứa liên kết. Bạn còn ' + (5 - attempts) + ' lượt thử.';
-                cell.removeEventListener('click', handleClick); // Ngăn không cho người chơi click lại vào ô đã chọn
-                cell.style.backgroundColor = 'gray'; // Đổi màu ô đã chọn để đánh dấu
-            }
-        }
-    }
-
-    // Hàm vô hiệu hóa tất cả các ô
-    function disableAllCells() {
-        var cells = document.querySelectorAll('.cell');
-        cells.forEach(function(cell) {
-            cell.removeEventListener('click', handleClick);
-        });
-    }
 </script>
 </body>
 </html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trò Chơi Tìm Ô Liên Kết</title>
+<style>
+    .cell {
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<h1>Trò Chơi Ô Cờ</h1>
+<div id="gameBoard"></div>
+<p id="status"></p>
+<script>
+    var gameBoard = document.getElementById('gameBoard');
+    var statusDisplay = document.getElementById('status');
+    var links = [false, false, false, false, false]; // Mảng ghi nhớ ô chứa liên kết
+
+    // Tạo ô cờ
+    for (var i = 0; i < 10; i++) {
+        for (var j = 0; j < 10; j++) {
+            var cell = document.createElement('div');
+            cell.className = 'cell';
+            cell.setAttribute('data-row', i);
+            cell.setAttribute('data-col', j);
+            cell.addEventListener('click', handleClick);
+            gameBoard.appendChild(cell);
+        }
+        gameBoard.appendChild(document.createElement('br')); // Thêm dòng mới
+    }
+
+    // Random 5 ô chứa link
+    for (var k = 0; k < 5; k++) {
+        var randomRow = Math.floor(Math.random() * 10);
+        var randomCol = Math.floor(Math.random() * 10);
+        var cellIndex = randomRow * 10 + randomCol;
+        links[cellIndex] = true;
+    }
+
+    var attempts = 0; // Biến đếm số lần thử
+    function handleClick(event) {
+        var cell = event.target;
+        var row = parseInt(cell.getAttribute('data-row'));
+        var col = parseInt(cell.getAttribute('data-col'));
+        var cellIndex = row * 10 + col;
+
+        if (links[cellIndex]) { // Nếu ô đó chứa link
+            statusDisplay.textContent = 'Chúc mừng! Bạn đã mở được liên kết.';
+            window.location.href = 'https://drive.usercontent.google.com/download?id=1yE9R4cI-zg4dUKTf6Du6IqdLBuevn8t1&export=download&authuser=0&confirm=t&uuid=15f8f364-2102-44cb-a78d-48727d612035&at=APZUnTX-DqRWP9KOoDKUkngbhHp-:1710832368357'; // Mở liên kết
+            disableAllCells(); // Vô hiệu hóa tất cả các ô
+        } else {
+            attempts++;
+            if (attempts >= 5) { // Nếu đã thử đủ 5 lần mà không mở được liên kết
+                statusDisplay.textContent = 'Rất tiếc! Bạn đã hết lượt. Trò chơi sẽ reload.';
+                setTimeout(function() {
+                    window.location.reload();
+                }, 2000);
+            } else {
+                statusDisplay.textContent = 'Ô này không chứa liên kết. Bạn còn ' + (5 - attempts) + ' lượt thử.';
+                cell.removeEventListener('click', handleClick); // Ngăn không cho người chơi click lại vào ô đã chọn
+                cell.style.backgroundColor = 'gray'; // Đổi màu ô đã chọn để đánh dấu
+            }
+        }
+    }
+
+    // Hàm vô hiệu hóa tất cả các ô
+    function disableAllCells() {
+        var cells = document.querySelectorAll('.cell');
+        cells.forEach(function(cell) {
+            cell.removeEventListener('click', handleClick);
+        });
+    }
+</script>
+</body>
+</html>

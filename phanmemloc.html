@@ -5,18 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trò Chơi Tìm Ô Liên Kết</title>
 <style>
-    .cell {
-        width: 30px;
-        height: 30px;
-        border: 1px solid black;
-        display: inline-block;
-        text-align: center;
-        cursor: pointer;
-    }
+body {
+    background-color: #0f0f0f; /* Màu nền của trang */
+    font-family: 'Courier New', monospace; /* Font chữ */
+    color: lime; /* Màu chữ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Đặt chiều cao của body là 100% chiều cao của viewport */
+    margin: 0; /* Loại bỏ margin mặc định */
+}
+
+.game-board {
+    background-color: #000; /* Màu nền của bảng */
+    border-radius: 10px; /* Đường viền cong */
+    padding: 20px; /* Khoảng cách giữa các ô */
+    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2); /* Đổ bóng */
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #00ff00; /* Đường viền của ô */
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.cell:hover {
+    background-color: #001f00; /* Màu nền khi hover vào ô */
+    border-color: #00ff00; /* Đổi màu đường viền khi hover */
+}
+h1 {
+    position: absolute; /* Thiết lập vị trí tuyệt đối */
+    top: 0; /* Đặt vị trí của tiêu đề ở đầu trang */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translateX(-50%); /* Di chuyển tiêu đề lùi lại phía trái 50% chiều rộng của nó để căn giữa */
+    background-color: #333; /* Màu nền */
+    color: white; /* Màu chữ */
+    padding: 10px 20px; /* Độ dày và khoảng cách giữa văn bản và viền */
+    margin: 0; /* Loại bỏ margin mặc định */
+}
+#statusDisplay {
+    position: fixed; /* Thiết lập vị trí cố định */
+    bottom: 20px; /* Cách mép dưới 20px */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translateX(-50%); /* Di chuyển phần tử lùi lại 50% chiều rộng của nó để căn giữa */
+    background-color: #333; /* Màu nền */
+    color: white; /* Màu chữ */
+    padding: 10px; /* Độ dày và khoảng cách giữa văn bản và viền */
+    border-radius: 5px; /* Đường viền cong */
+}
+
+
 </style>
 </head>
 <body>
-<h1>Trò Chơi Ô Cờ</h1>
+<h1>Trò Chơi Ô Cờ Tìm Link   </h1>
 <div id="gameBoard"></div>
 <p id="status"></p>
 <script>

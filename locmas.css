@@ -82,6 +82,7 @@ td {
     background-color: #000;
 }
 
+
 @media screen and (max-width: 600px) {
     .container {
         padding: 10px;
@@ -91,3 +92,8 @@ td {
         width: 100%;
     }
 }
+
+tr:first-child {
+    background-color: orange;
+}
+

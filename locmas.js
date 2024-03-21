@@ -6,7 +6,7 @@ function handleFile(event) {
 
     reader.onload = function(e) {
         const data = new Uint8Array(e.target.result);
-        const workbook = XLSX.read(data, {type: 'array'});
+        const workbook = XLSX.read(data, { type: 'array' });
         const sheetName = workbook.SheetNames[0];
         const sheet = workbook.Sheets[sheetName];
 
@@ -20,22 +20,14 @@ function handleFile(event) {
 document.getElementById('filter-modal-max').addEventListener('click', filterModalMax);
 
 function filterModalMax() {
-    // Lấy dữ liệu từ excel-content
     const excelContent = document.getElementById('excel-content');
     const tables = excelContent.getElementsByTagName('table');
-    const data = [];
-
-    // Lấy dữ liệu UX và UY
-    const uxData = [];
-    const uyData = [];
-
-    // HTML của bảng đầu vào
-    let originalTableHTML = '';
+    const maxEntriesUX = [];
+    const maxEntriesUY = [];
 
     for (let table of tables) {
-        originalTableHTML += table.outerHTML; // Lưu HTML của bảng đầu vào
-
         const rows = table.rows;
+
         for (let i = 1; i < rows.length; i += 3) { // Lọc theo từng nhóm 3 hàng
             const cells1 = rows[i].cells;
             const cells2 = rows[i + 1].cells;
@@ -54,39 +46,71 @@ function filterModalMax() {
             const maxUX = Math.max(ux1, ux2, ux3);
             const maxUY = Math.max(uy1, uy2, uy3);
 
-            // Thêm dữ liệu vào mảng data
-            data.push({ case: caseValue1, mode: modeValue1, period: periodValue1, ux: maxUX, uy: maxUY });
+            // Tìm Case, Mode và Period của hàng có UX và UY max
+            let maxCaseUX, maxModeUX, maxPeriodUX;
+            let maxCaseUY, maxModeUY, maxPeriodUY;
 
-            // Thêm dữ liệu UX và UY vào mảng tương ứng
-            uxData.push(maxUX);
-            uyData.push(maxUY);
+            if (maxUX === ux1) {
+                maxCaseUX = caseValue1;
+                maxModeUX = modeValue1;
+                maxPeriodUX = periodValue1;
+            } else if (maxUX === ux2) {
+                maxCaseUX = cells2[0].innerText;
+                maxModeUX = cells2[1].innerText;
+                maxPeriodUX = cells2[2].innerText;
+            } else {
+                maxCaseUX = cells3[0].innerText;
+                maxModeUX = cells3[1].innerText;
+                maxPeriodUX = cells3[2].innerText;
+            }
+
+            if (maxUY === uy1) {
+                maxCaseUY = caseValue1;
+                maxModeUY = modeValue1;
+                maxPeriodUY = periodValue1;
+            } else if (maxUY === uy2) {
+                maxCaseUY = cells2[0].innerText;
+                maxModeUY = cells2[1].innerText;
+                maxPeriodUY = cells2[2].innerText;
+            } else {
+                maxCaseUY = cells3[0].innerText;
+                maxModeUY = cells3[1].innerText;
+                maxPeriodUY = cells3[2].innerText;
+            }
+
+            // Thêm dữ liệu vào mảng maxEntriesUX và maxEntriesUY
+            maxEntriesUX.push({ case: maxCaseUX, mode: maxModeUX, period: maxPeriodUX, ux: maxUX });
+            maxEntriesUY.push({ case: maxCaseUY, mode: maxModeUY, period: maxPeriodUY, uy: maxUY });
         }
     }
 
-    // Tạo bảng mới cho UX và UY lớn nhất
+    // Tạo cửa sổ modal
     const modalWindow = window.open('', 'Modal Window', 'width=800,height=400');
-    modalWindow.document.write('<html><head><title>Max UX and UY</title></head><body>');
-    modalWindow.document.write('<h2>Original Data</h2>');
-    modalWindow.document.write(originalTableHTML); // Hiển thị bảng đầu vào
 
+    // Viết nội dung HTML cho cửa sổ modal
+    modalWindow.document.write('<html><head><title>Max UX and UY</title>');
+    modalWindow.document.write('<style>table { border-collapse: collapse; width: 100%; }');
+    modalWindow.document.write('th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }</style>');
+    modalWindow.document.write('</head><body>');
+
+    // Hiển thị bảng cho Max UX
     modalWindow.document.write('<h2>Max UX</h2>');
-    modalWindow.document.write('<table><thead><tr><th>Case</th><th>Mode</th><th>Period</th><th>Max UX</th></tr></thead><tbody>');
-
-    for (let entry of data) {
+    modalWindow.document.write('<table>');
+    modalWindow.document.write('<thead><tr><th>Case</th><th>Mode</th><th>Period</th><th>Max UX</th></tr></thead><tbody>');
+    for (let entry of maxEntriesUX) {
         modalWindow.document.write(`<tr><td>${entry.case}</td><td>${entry.mode}</td><td>${entry.period}</td><td>${entry.ux}</td></tr>`);
     }
-
     modalWindow.document.write('</tbody></table>');
 
+    // Hiển thị bảng cho Max UY
     modalWindow.document.write('<h2>Max UY</h2>');
-    modalWindow.document.write('<table><thead><tr><th>Case</th><th>Mode</th><th>Period</th><th>Max UY</th></tr></thead><tbody>');
-
-    for (let entry of data) {
+    modalWindow.document.write('<table>');
+    modalWindow.document.write('<thead><tr><th>Case</th><th>Mode</th><th>Period</th><th>Max UY</th></tr></thead><tbody>');
+    for (let entry of maxEntriesUY) {
         modalWindow.document.write(`<tr><td>${entry.case}</td><td>${entry.mode}</td><td>${entry.period}</td><td>${entry.uy}</td></tr>`);
     }
-
     modalWindow.document.write('</tbody></table>');
+
     modalWindow.document.write('</body></html>');
     modalWindow.document.close();
 }
-

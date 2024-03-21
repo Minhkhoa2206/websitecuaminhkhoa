@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     var menuItems = [
         { label: "Kho Bản Vẽ + Hồ Sơ Xây Dựng (Freedrawingstore.vn)", link: "khobanve.html" },
+        { label: "Chu kỳ dao động riêng thứ nhất trong Etabs ", link: "locmas.html" },
+        { label: "Dowload bộ công cụ lọc Moment Floor + Beam  ", link: "phanmemloc.html" },
         { label: "Tổng Hợp Tất Cả Phần Mềm", link: "phanmem.html" },
         { label: "Chuyển Đổi Định Dạng Ảnh", link: "chuyendoihinhanh.html" },
         { label: "Chuyển Đổi Kích Thước Ảnh", link: "kichthuocanh.html" },
@@ -40,4 +42,34 @@ document.addEventListener("DOMContentLoaded", function() {
         ul.appendChild(li);
     });
     menuDanhMuc.appendChild(ul);
+
+    var menuList = document.getElementById("menuList");
+    var searchInput = document.getElementById("searchInput");
+
+    function renderMenu(items) {
+        menuList.innerHTML = "";
+        items.forEach(function(item) {
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.textContent = item.label;
+            a.setAttribute("href", item.link);
+            li.appendChild(a);
+            menuList.appendChild(li);
+        });
+    }
+
+    function filterMenuItems(searchTerm) {
+        var filteredItems = menuItems.filter(function(item) {
+            return item.label.toLowerCase().includes(searchTerm.toLowerCase());
+        });
+        renderMenu(filteredItems);
+    }
+
+    searchInput.addEventListener("input", function() {
+        var searchTerm = this.value.trim();
+        filterMenuItems(searchTerm);
+    });
+
+    // Render initial menu
+    renderMenu(menuItems);
 });

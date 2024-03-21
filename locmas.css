@@ -1,0 +1,93 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace; /* Futuristic font */
+    background-color: #000; /* Black background */
+    color: #0f0; /* Green text */
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.input-wrapper {
+    margin-bottom: 20px;
+}
+
+.input-wrapper input[type="file"] {
+    display: none;
+}
+
+.input-wrapper label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00f; /* Blue button */
+    color: #0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input-wrapper label:hover {
+    background-color: #0ff; /* Light blue hover */
+}
+
+#excel-content {
+    margin-top: 20px;
+}
+
+.btn {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #0f0; /* Green button */
+    color: #000; /* Black text */
+    border: 2px solid #0f0; /* Green border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #000; /* Black hover */
+    color: #0f0; /* Green hover text */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #0f0; /* Green border */
+    text-align: center;
+}
+
+th {
+    background-color: #00f;
+    color: #0f0;
+}
+
+td {
+    background-color: #000;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

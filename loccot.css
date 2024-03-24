@@ -1,0 +1,38 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+
+  .checkbox-container {
+    border: 1px solid #ccc; /* Tạo khung xung quanh với đường viền 1px và màu xám */
+    border-radius: 5px; /* Bo tròn góc của khung */
+    padding: 10px; /* Tạo khoảng cách với các phần tử bên trong */
+    margin-top: 10px;
+    display: flex; /* Sử dụng flexbox để sắp xếp các checkbox theo hàng ngang */
+    flex-wrap: wrap; /* Cho phép các checkbox chuyển hàng khi không đủ không gian */
+  }
+  
+  .checkbox-container h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  
+  .p-min {
+    background-color: #ffcccb; /* Tô màu đỏ cho giá trị P min */
+}
+
+.m2-min {
+    background-color: #add8e6; /* Tô màu xanh cho giá trị M2 min */
+}
+
+.m3-min {
+    background-color: #ffa500; /* Tô màu cam cho giá trị M3 min */
+}

@@ -99,12 +99,17 @@ button:hover {
 </style>
 </head>
 <body>
-<script>
-        window.onload = function() {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Khai báo và tạo đối tượng Audio trong JavaScript
             const audio = new Audio('music.mp3'); // Thay đổi 'your-audio-file.mp3' bằng đường dẫn đến tệp âm thanh của bạn
-            audio.play();
-        };
-</script>
+        
+            // Lắng nghe sự kiện "click" trên toàn bộ tài liệu
+            document.addEventListener('click', function() {
+                audio.play(); // Phát âm thanh khi có sự kiện "click"
+            });
+        });
+        </script>
 <div class="intro-container">
     <div class="intro-content">
         <h1>HELLO BẠN TÔI</h1>
@@ -112,7 +117,12 @@ button:hover {
     </div>
 </div>
 <div id="question-box">
-    <p>HÃY NHẤN YES NẾU BẠN THÍCH TÔI NO NẾU BẠN GHÉT TÔI</p>
+    <p>Chúng ta, trong hiện tại này, đang bước vào một hành trình khám phá và sáng tạo: hành trình của việc làm đồ án.<br>
+        Mỗi ngày, chúng ta cùng nhau đối diện với những thách thức và cơ hội mới, từ việc nghiên cứu đến việc thiết kế và thử nghiệm.<br>
+        Những buổi họp nhóm, những cuộc trao đổi ý kiến và những đêm thức đêm để hoàn thiện dự án đã trở thành một phần không thể tách rời của cuộc sống hàng ngày của chúng ta.</p>
+        
+        <p>Nếu bạn thích tôi, hãy bấm Yes. Nếu ghét tôi, hãy bấm No.</p>
+        
     <button id="yes-button">Yes</button>
     <button id="no-button">No</button>
 </div>

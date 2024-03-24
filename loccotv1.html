@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filter Excel Data</title>
+  <link rel="stylesheet" type="text/css" href="loccot.css">
+</head>
+<body>
+
+<input type="file" id="excelFileInput" accept=".xlsx">
+<div id="filterOptions">
+  <h3>Story</h3>
+  <div class="checkbox-container story-checkboxes">
+    <!-- Story checkboxes will be added by JavaScript -->
+  </div>
+  <h3>Colum</h3>
+  <div class="checkbox-container column-checkboxes">
+    <!-- Column checkboxes will be added by JavaScript -->
+  </div>
+</div>
+
+<button id="filterButton">Filter</button>
+
+<table id="excelDataTable">
+</table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+<script src="loccot.js"></script>
+
+</body>
+</html>

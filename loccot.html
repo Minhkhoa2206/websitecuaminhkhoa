@@ -1,33 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Filter Excel Data</title>
-  <link rel="stylesheet" type="text/css" href="loccot.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intro Page</title>
+<style>
+body {
+    background-color: #000;
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    padding-top: 50px;
+}
+
+h1 {
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #00ff00;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0f0;
+}
+
+.intro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.intro-content {
+    text-align: center;
+}
+
+#question-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    padding: 20px;
+    border: 2px solid #0f0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+#question-box p {
+    color: #0f0;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+#yes-button,
+#no-button {
+    background-color: transparent;
+    color: #0f0;
+    border: 2px solid #0f0;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#yes-button:hover,
+#no-button:hover {
+    background-color: #0f0;
+    color: #000;
+}
+
+#yes-button {
+    margin-right: 10px;
+}
+
+</style>
 </head>
 <body>
-
-<input type="file" id="excelFileInput" accept=".xlsx">
-<div id="filterOptions">
-  <h3>Story</h3>
-  <div class="checkbox-container story-checkboxes">
-    <!-- Story checkboxes will be added by JavaScript -->
-  </div>
-  <h3>Colum</h3>
-  <div class="checkbox-container column-checkboxes">
-    <!-- Column checkboxes will be added by JavaScript -->
-  </div>
+<script>
+        window.onload = function() {
+            const audio = new Audio('music.mp3'); // Thay đổi 'your-audio-file.mp3' bằng đường dẫn đến tệp âm thanh của bạn
+            audio.play();
+        };
+</script>
+<div class="intro-container">
+    <div class="intro-content">
+        <h1>HELLO BẠN TÔI</h1>
+        <button id="start-button">Start</button>
+    </div>
 </div>
+<div id="question-box">
+    <p>HÃY NHẤN YES NẾU BẠN THÍCH TÔI NO NẾU BẠN GHÉT TÔI</p>
+    <button id="yes-button">Yes</button>
+    <button id="no-button">No</button>
+</div>
+<script>
+    const startButton = document.getElementById('start-button');
+    const questionBox = document.getElementById('question-box');
+    const yesButton = document.getElementById('yes-button');
+    const noButton = document.getElementById('no-button');
 
-<button id="filterButton">Filter</button>
+    startButton.addEventListener('click', function() {
+        questionBox.style.display = 'block';
+    });
 
-<table id="excelDataTable">
-</table>
+    yesButton.addEventListener('click', function() {
+        window.location.href = 'loccotv1.html';
+    });
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
-<script src="loccot.js"></script>
+    noButton.addEventListener('click', function() {
+        window.location.href = 'loccotv2.html';
+    });
+</script>
+
 
 </body>
 </html>

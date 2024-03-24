@@ -101,15 +101,25 @@ button:hover {
 <body>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Khai báo và tạo đối tượng Audio trong JavaScript
-            const audio = new Audio('music.mp3'); // Thay đổi 'your-audio-file.mp3' bằng đường dẫn đến tệp âm thanh của bạn
-        
+            // Mảng chứa các đường dẫn của các tệp âm thanh
+            const audioFiles = ['music1.mp3', 'music2.mp3'];
+    
+            // Hàm để chọn ngẫu nhiên một phần tử trong mảng
+            function getRandomAudio() {
+                return audioFiles[Math.floor(Math.random() * audioFiles.length)];
+            }
+    
+            // Khai báo và tạo đối tượng Audio trong JavaScript với âm thanh được chọn ngẫu nhiên
+            const audio = new Audio(getRandomAudio());
+    
             // Lắng nghe sự kiện "click" trên toàn bộ tài liệu
             document.addEventListener('click', function() {
-                audio.play(); // Phát âm thanh khi có sự kiện "click"
+                audio.src = getRandomAudio(); // Chọn ngẫu nhiên một tệp âm thanh mới khi có sự kiện "click"
+                audio.play(); // Phát âm thanh
             });
         });
-        </script>
+    </script>
+    
 <div class="intro-container">
     <div class="intro-content">
         <h1>HELLO BẠN TÔI</h1>
@@ -137,13 +147,14 @@ button:hover {
     });
 
     yesButton.addEventListener('click', function() {
-        window.location.href = 'loccotv1.html';
+        window.open('loccotv1.html', '_blank'); // Mở liên kết trong một tab mới
     });
 
     noButton.addEventListener('click', function() {
-        window.location.href = 'loccotv2.html';
+        window.open('loccotv2.html', '_blank'); // Mở liên kết trong một tab mới
     });
 </script>
+
 
 
 </body>

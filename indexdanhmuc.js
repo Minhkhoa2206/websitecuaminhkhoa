@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     var menuItems = [
         { label: "Kho Bản Vẽ + Hồ Sơ Xây Dựng (Freedrawingstore.vn)", link: "khobanve.html" },
+        { label:"KHOAEDM",link:"https://minhkhoa2206.github.io/KHOAEDM/"},
         { label:"Donate",link:"https://sites.google.com/view/ketcaumk-pr/donate"},
         { label: "Chu kỳ dao động riêng thứ nhất trong Etabs ", link: "locmas.html" },
         { label: "Dowload bộ công cụ lọc Moment Floor + Beam  ", link: "phanmemloc.html" },

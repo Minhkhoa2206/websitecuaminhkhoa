@@ -155,7 +155,8 @@ $(document).ready(function() {
         var popupWindow = window.open('', 'Popup_Window', 'width=600,height=400');
         var popupDocument = popupWindow.document;
     
-        var html = '<table border="1">';
+        var html = '<button id="copyToExcelButton">Copy to Excel</button><br><br>';
+        html += '<table border="1">';
         for (var i = 0; i < data.length; i++) {
             html += '<tr>';
             for (var j = 0; j < data[i].length; j++) {
@@ -186,7 +187,13 @@ $(document).ready(function() {
         }
         html += '</table>';
     
+        // Thêm nút Copy to Excel vào popup
         popupDocument.write(html);
+        // Gắn sự kiện click cho nút
+        var copyToExcelButton = popupDocument.getElementById('copyToExcelButton');
+        copyToExcelButton.addEventListener('click', function() {
+            copyDataToExcel(data);
+        });
     }
     
     // Hàm kiểm tra xem giá trị P có phải là giá trị nhỏ nhất không
@@ -222,6 +229,22 @@ $(document).ready(function() {
         return true;
     }
     
+    // Hàm copy dữ liệu sang Excel (CSV)
+    function copyDataToExcel(data) {
+        var csvContent = "data:text/csv;charset=utf-8,";
+        data.forEach(function(rowArray) {
+            var row = rowArray.join(",");
+            csvContent += row + "\r\n";
+        });
+    
+        var encodedUri = encodeURI(csvContent);
+        var link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "data.csv");
+        document.body.appendChild(link);
+        link.click();
+    }
+        
     
 });
 

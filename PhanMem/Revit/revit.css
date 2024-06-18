@@ -1,95 +1,91 @@
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 body {
     font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #e6f7ff;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-    background: linear-gradient(45deg, #ff5733, #ffc300);
-    color: #fff;
-    padding: 20px 0;
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 0;
     text-align: center;
 }
 
-header h1 {
+h1 {
+    font-size: 2rem;
     margin: 0;
-    font-size: 2.5rem;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+h2 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    text-align: center;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+h3 {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+    text-align: center;
 }
 
-nav ul li a {
-    color: #fff;
+a {
+    color: #4CAF50;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #ffeb3b;
+a:hover {
+    text-decoration: underline;
 }
 
 main {
-    padding: 20px;
+    flex: 1;
+    padding: 1rem;
 }
 
-main section {
-    margin-bottom: 20px;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    justify-items: center;
 }
 
-main section h2 {
-    border-bottom: 3px solid #ff5733;
-    padding-bottom: 10px;
-    font-size: 2rem;
+.gallery-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    padding: 1rem;
 }
 
-article {
-    margin-bottom: 20px;
+.gallery-item:hover {
+    transform: scale(1.05);
 }
 
-article h3 {
-    margin-top: 0;
-    font-size: 1.5rem;
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
 }
 
-article p {
-    color: #555;
-}
-
-article a {
-    color: #ff5733;
-    text-decoration: none;
+.image-caption {
     font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-article a:hover {
-    color: #ffc300;
+    margin: 0.5rem 0;
 }
 
 footer {
-    background: linear-gradient(45deg, #ff5733, #ffc300);
-    color: #fff;
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
     text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }

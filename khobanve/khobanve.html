@@ -1,1 +1,32 @@
-1
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freedrawingstore.vn</title>
+    <link rel="icon" href="hinhanh/khobanve.png" type="image/png">
+    <link rel="stylesheet" href="khobanve.css">
+    <script src="khobanvetb.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="rainbow-text">Freedrawingstore.vn</h1>
+        <select id="filterSelect">
+            <option value="all">Tất cả loại sản phẩm</option>
+            <option value="KT">Kiến Trúc</option>
+            <option value="KC">Kết Cấu</option>
+            <option value="QH">Quy Hoạch</option>
+            <option value="AU">AutoCad</option>
+            <option value="RV">Revit</option>
+            <option value="SK">SketChup</option>
+        </select>
+        <input type="text" id="searchInput" placeholder="Tìm kiếm bằng tên hoặc mã bản vẽ...">
+    </header>
+
+    <div class="container" id="product-container">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

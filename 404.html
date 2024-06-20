@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+        .error-code {
+            font-size: 150px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .error-code span {
+            display: inline-block;
+            animation: changeColor 2s infinite;
+        }
+        .error-code span:nth-child(1) {
+            color: #ea4c89; /* Màu hồng nhạt */
+        }
+        .error-code span:nth-child(2) {
+            color: #007bff; /* Màu xanh dương */
+        }
+        .error-code span:nth-child(3) {
+            color: #ffd700; /* Màu vàng */
+        }
+        .error-code span:nth-child(4) {
+            color: #32cd32; /* Màu xanh lá cây */
+        }
+        @keyframes changeColor {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        .error-message {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            text-decoration: none;
+            color: #007bff; /* Màu xanh dương */
+            font-weight: bold;
+            border: 2px solid #007bff; /* Viền nổi xanh dương */
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease; /* Hiệu ứng mượt khi hover */
+        }
+        .back-link:hover {
+            background-color: #007bff; /* Màu nền khi hover */
+            color: #fff; /* Màu chữ khi hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="error-code">
+        <span>4</span>
+        <span>0</span>
+        <span>4</span>
+    </div>
+    <div class="error-message">Oops! Page not found.</div>
+    <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+    <a href="/" class="back-link">Go back to homepage</a>
+</body>
+</html>

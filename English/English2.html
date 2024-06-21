@@ -1,45 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="English2.css">
-<link rel="stylesheet" type="text/css" href="stylesmenu.css">
-<link rel="icon" href="icon.jpg" type="image/jpg">
-<title>English for Construction Industry</title>
+    <meta charset="UTF-8">
+    <title>English for Construction Industry</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="icon" href="icon.jpg" type="image/jpg">
 </head>
 <body>
-  <div class="menu-btn" onclick="openMenu()">≡</div>
+    <header>
+        <div class="container">
+            <h1>MINH KHOA CONSTRUCTION</h1>
+            <nav>
+                <ul>
+                    <li><a href="https://www.xaydungminhkhoa.online/index.html">Trang chủ</a></li>
+                    <li><a href="English3.html">Từ Vựng</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <div id="menu" style="display: none;">
-    <a href="index.html">Trang Chủ</a>
-    <a href="English3.html">Từ Vựng</a>
-  </div>
+    <div class="menu-btn" onclick="openMenu()">≡</div>
+    <div id="menu" style="display: none;">
+                    <li><a href="">Trang chủ</a></li>
+        <a href="https://www.xaydungminhkhoa.online/index.html">Trang Chủ</a>
+        <a href="English3.html">Từ Vựng</a>
+    </div>
 
-<h2>English for construction industry</h2>
+    <main>
+        <h2>English for Construction Industry</h2>
 
-<select id="language" onchange="changeLanguage()">
-  <option value="vi-en">Vietnamese to English</option>
-  <option value="en-vi">English to Vietnamese</option>
-</select>
+        <div class="content">
+            <select id="language" onchange="changeLanguage()">
+                <option value="vi-en">Vietnamese to English</option>
+                <option value="en-vi">English to Vietnamese</option>
+            </select>
 
-<input id="word" type="text">
-<button onclick="lookup()">Tra cứu</button>
-<div id="suggestionBox"></div> <!-- Suggestion box -->
+            <input id="word" type="text" placeholder="Enter a word...">
+            <button onclick="lookup()">Tra cứu</button>
+            <div id="suggestionBox"></div> <!-- Suggestion box -->
 
+            <p id="output"></p>
+        </div>
 
-<p id="output"></p>
+        <hr style="width:50px; border: 2px solid;">
+        <hr style="border: 1px solid red;">
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0&appId=904132133887143" nonce="DtpjiXoS"></script>
+        <div class="fb-comments" data-href="https://minhkhoa2206.github.io/English-for-construction-industry/index2.html" data-width="100" data-numposts="10"></div>
+    
+      </main>
 
-<script src="data2.js"></script>
-<script src="main2.js"></script>
-<script src="main4.js"></script>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Minh Khoa Construction. All rights reserved.</p>
+            <ul>
+                <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                <li><a href="sitemap.html">Sơ đồ trang</a></li>
+                <li><a href="404.html">404 - Trang không tồn tại</a></li>
+            </ul>
+        </div>
+    </footer>
 
-
-<hr style="width:50px; border: 2px solid;">
-<hr style="border: 1px solid red;">
-<!-- Add the Facebook Comments plugin here -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0&appId=904132133887143" nonce="DtpjiXoS"></script>
-<div class="fb-comments" data-href="https://minhkhoa2206.github.io/English-for-construction-industry/index2.html/" data-width="100" data-numposts="10"></div>
-
+    <script src="data2.js"></script>
+    <script src="main2.js"></script>
+    <script src="main4.js"></script>
+    <script src="menu.js"></script> <!-- Link to your JavaScript file -->
 </body>
 </html>

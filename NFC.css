@@ -1,8 +1,14 @@
+/* Reset mặc định của trình duyệt */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cấu hình chung */
 body {
     font-family: 'Arial', sans-serif;
     text-align: center;
-    margin: 0;
-    padding: 0;
     background: linear-gradient(to bottom right, #c9d6ff, #e2e2e2);
     color: #333;
     display: flex;
@@ -11,12 +17,32 @@ body {
     min-height: 100vh;
 }
 
+.container {
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Tiêu đề */
 h1 {
-    font-size: 2.5em;
+    font-size: 2em;
     color: #4a4a4a;
     margin-bottom: 20px;
 }
 
+/* Phần nội dung chứa nút và kết quả */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Nút kiểm tra */
 button {
     background-color: #4CAF50;
     border: none;
@@ -26,10 +52,10 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 1.2em;
-    margin: 10px 0;
+    margin: 0;
     cursor: pointer;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -41,13 +67,65 @@ button:active {
     transform: scale(0.98);
 }
 
+/* Kết quả */
 .result {
-    margin-top: 20px;
     font-size: 1.2em;
     color: #333;
-    background: #ffffff;
+    background: #f9f9f9;
     border-radius: 8px;
     padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 1em;
+    }
+
+    .result {
+        font-size: 1em;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .result {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 600px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    button {
+        padding: 18px 36px;
+        font-size: 1.3em;
+    }
+
+    .result {
+        font-size: 1.3em;
+        padding: 20px;
+    }
 }
